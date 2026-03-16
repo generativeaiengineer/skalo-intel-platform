@@ -1,0 +1,49 @@
+{
+  "channels": [
+    {
+      "handle": "AndrejKarpathy",
+      "name": "Andrej Karpathy",
+      "url": "https://www.youtube.com/@AndrejKarpathy",
+      "description": "Deep learning and AI research by ex-OpenAI / Tesla AI director.",
+      "category": "Research",
+      "tags": ["deep learning", "neural networks", "research"],
+      "added_at": "2026-03-13T09:00:00.000Z"
+    },
+    {
+      "handle": "Fireship",
+      "name": "Fireship",
+      "url": "https://www.youtube.com/@Fireship",
+      "description": "Fast-paced dev content covering AI tools, frameworks, and web tech.",
+      "category": "Dev Tools",
+      "tags": ["ai tools", "web dev", "tutorials"],
+      "added_at": "2026-03-13T09:00:00.000Z"
+    },
+    {
+      "handle": "lexfridman",
+      "name": "Lex Fridman",
+      "url": "https://www.youtube.com/@lexfridman",
+      "description": "Long-form interviews with AI researchers, founders, and scientists.",
+      "category": "Interviews",
+      "tags": ["interviews", "research", "ai founders"],
+      "added_at": "2026-03-13T09:00:00.000Z"
+    },
+    {
+      "handle": "YannicKilcher",
+      "name": "Yannic Kilcher",
+      "url": "https://www.youtube.com/@YannicKilcher",
+      "description": "ML paper reviews and research breakdowns.",
+      "category": "Research",
+      "tags": ["paper review", "ml research", "deep learning"],
+      "added_at": "2026-03-13T09:00:00.000Z"
+    },
+    {
+      "id": "UCrDwWp7EBBv4NwvScIpBDOA",
+      "name": "Anthropic",
+      "url": "https://www.youtube.com/@anthropic-ai",
+      "description": "Official Anthropic channel — Claude demos, research talks, and safety announcements.",
+      "category": "Company",
+      "tags": ["claude", "anthropic", "ai safety"],
+      "added_at": "2026-03-13T09:00:00.000Z"
+    }
+  ]
+}

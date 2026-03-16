@@ -1,0 +1,47 @@
+<% layout = 'layout' %>
+<div class="coach-shell">
+  <!-- Chat window -->
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-messages" id="chatMessages">
+      <!-- Welcome message -->
+      <div class="chat-message assistant">
+        <div class="chat-avatar">🤖</div>
+        <div class="chat-bubble">
+          <p>Hi! I'm your <strong>SKALO AI Coach</strong>, powered by Claude and trained on 56 Anthropic documentation pages.</p>
+          <p style="margin-top:0.5rem">Ask me anything about <strong>prompt engineering</strong>, the <strong>Claude API</strong>, <strong>Claude Code</strong>, or how to build better AI systems.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Typing indicator (hidden by default) -->
+    <div class="typing-indicator" id="typingIndicator" style="display:none">
+      <div class="chat-avatar">🤖</div>
+      <div class="typing-dots"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+
+  <!-- Input area -->
+  <div class="chat-input-area">
+    <div class="chat-input-row">
+      <textarea
+        id="chatInput"
+        class="chat-textarea"
+        placeholder="Ask about Claude, prompt engineering, API usage..."
+        rows="1"
+        autofocus
+      ></textarea>
+      <button id="sendBtn" class="chat-send-btn" aria-label="Send">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
+    <div class="chat-actions">
+      <button id="clearBtn" class="chat-action-btn">Clear history</button>
+      <span class="chat-hint">Enter to send &bull; Shift+Enter for new line</span>
+    </div>
+  </div>
+</div>
+
+<script src="/js/coach.js"></script>

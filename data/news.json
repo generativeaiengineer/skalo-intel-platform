@@ -1,0 +1,101 @@
+{
+  "last_updated": "2026-03-13T12:24:29.590Z",
+  "last_fetch_status": {
+    "hackernews": "ok",
+    "producthunt": "ok"
+  },
+  "articles": [
+    {
+      "id": "ph_1097041",
+      "title": "ScheduleMe",
+      "url": "https://www.producthunt.com/products/scheduleme?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+Daily+AI+News+%28ID%3A+278186%29",
+      "source": "producthunt",
+      "points": 0,
+      "created_at": "2026-03-13T07:01:00Z",
+      "tagline": "ScheduleMe is a scheduling tool for managing availability",
+      "category": null,
+      "date_group": "today"
+    },
+    {
+      "id": "ph_1097039",
+      "title": "Makani Location & Parking Saver",
+      "url": "https://www.producthunt.com/products/makani-location-parking-saver?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+Daily+AI+News+%28ID%3A+278186%29",
+      "source": "producthunt",
+      "points": 0,
+      "created_at": "2026-03-13T07:01:00Z",
+      "tagline": "Save and find your parking location easily",
+      "category": null,
+      "date_group": "today"
+    },
+    {
+      "id": "ph_1097031",
+      "title": "AI Watermark Remover",
+      "url": "https://www.producthunt.com/products/ai-watermark-remover?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+Daily+AI+News+%28ID%3A+278186%29",
+      "source": "producthunt",
+      "points": 0,
+      "created_at": "2026-03-13T07:01:00Z",
+      "tagline": "Watermark Remover - Remove Watermarks from Images with AI",
+      "category": null,
+      "date_group": "today"
+    },
+    {
+      "id": "ph_1097030",
+      "title": "EasySearch",
+      "url": "https://www.producthunt.com/products/easysearch?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+Daily+AI+News+%28ID%3A+278186%29",
+      "source": "producthunt",
+      "points": 0,
+      "created_at": "2026-03-13T07:01:00Z",
+      "tagline": "#safesearchengine",
+      "category": null,
+      "date_group": "today"
+    },
+    {
+      "id": "hn_47353837",
+      "title": "Anthropic's Claude AI can respond with charts, diagrams, and other visuals now",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/893625/anthropic-claude-ai-charts-diagrams",
+      "source": "hackernews",
+      "points": 2,
+      "created_at": "2026-03-12T16:58:20Z",
+      "tagline": null,
+      "category": null,
+      "num_comments": 0,
+      "date_group": "today"
+    },
+    {
+      "id": "hn_47350632",
+      "title": "Rogue AI agents published passwords and overrode anti-virus software",
+      "url": "https://www.theguardian.com/technology/ng-interactive/2026/mar/12/lab-test-mounting-concern-over-rogue-ai-agents-artificial-intelligence",
+      "source": "hackernews",
+      "points": 4,
+      "created_at": "2026-03-12T13:59:53Z",
+      "tagline": null,
+      "category": null,
+      "num_comments": 0,
+      "date_group": "today"
+    },
+    {
+      "id": "hn_47349728",
+      "title": "'Convincing' AI scams drove UK fraud cases to record 444,000 last year",
+      "url": "https://www.theguardian.com/money/2026/mar/12/ai-scams-uk-fraud-artificial-intelligence-mobile-bank-online-shopping-cifas",
+      "source": "hackernews",
+      "points": 3,
+      "created_at": "2026-03-12T12:35:59Z",
+      "tagline": null,
+      "category": null,
+      "num_comments": 0,
+      "date_group": "today"
+    },
+    {
+      "id": "hn_47344407",
+      "title": "Is AI the end of software engineering or the next step in its evolution?",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/767973/vibe-coding-ai-future-end-evolution",
+      "source": "hackernews",
+      "points": 3,
+      "created_at": "2026-03-12T00:07:12Z",
+      "tagline": null,
+      "category": null,
+      "num_comments": 0,
+      "date_group": "this_week"
+    }
+  ]
+}

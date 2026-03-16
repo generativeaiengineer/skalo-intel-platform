@@ -1,0 +1,21 @@
+<article class="news-card">
+  <div class="card-meta">
+    <span class="source-badge source-<%= article.source %>">
+      <%= article.source === 'hackernews' ? 'HN' : 'PH' %>
+    </span>
+    <% if (article.points) { %>
+      <span class="points">▲ <%= article.points %></span>
+    <% } %>
+    <span class="time-ago"><%= article.timeAgo %></span>
+  </div>
+
+  <h3 class="card-title">
+    <a href="<%= article.url %>" target="_blank" rel="noopener noreferrer">
+      <%= article.title %>
+    </a>
+  </h3>
+
+  <% if (article.tagline) { %>
+    <p class="card-tagline"><%= article.tagline %></p>
+  <% } %>
+</article>

@@ -1,0 +1,39 @@
+{
+  "tips": [
+    {
+      "id": "tip_001",
+      "title": "Use XML tags to structure your prompts",
+      "content": "Wrap different parts of your prompt in XML tags like <instructions>, <context>, <examples> to help Claude clearly separate different parts of the input. This dramatically improves output quality for complex tasks.",
+      "category": "Prompt Engineering",
+      "tags": [
+        "xml",
+        "structure",
+        "prompt"
+      ],
+      "source": "manual",
+      "added_at": "2026-03-13T09:00:00.000Z"
+    },
+    {
+      "id": "tip_002",
+      "title": "Chain prompts for complex multi-step tasks",
+      "content": "Instead of one giant prompt, break complex tasks into a chain: Step 1 extracts data, Step 2 analyzes it, Step 3 formats output. Each step is smaller, more reliable, and easier to debug.",
+      "category": "Prompt Engineering",
+      "tags": [
+        "chaining",
+        "workflow",
+        "reliability"
+      ],
+      "source": "manual",
+      "added_at": "2026-03-13T09:00:00.000Z"
+    },
+    {
+      "id": "tip_1773419717525",
+      "title": "Test Tip",
+      "content": "This is a test tip",
+      "category": "Testing",
+      "tags": [],
+      "source": "manual",
+      "added_at": "2026-03-13T16:35:17.525Z"
+    }
+  ]
+}

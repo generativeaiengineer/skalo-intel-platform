@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SKALO Intel Platform — AI market intelligence dashboard" />
+  <title><%= title %> — SKALO Intel</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+
+    <!-- ── Sidebar ─────────────────────────────────────────── -->
+    <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+      <div class="sidebar-header">
+        <span class="logo-text">SKALO</span>&nbsp;<span class="logo-accent">INTEL</span>
+      </div>
+
+      <ul class="nav-list">
+        <li class="nav-item <%= activePage === 'news'  ? 'active' : '' %>">
+          <a href="/" class="nav-link">
+            <span class="nav-icon">📰</span>
+            <span class="nav-label">News</span>
+          </a>
+        </li>
+        <li class="nav-item <%= activePage === 'tools' ? 'active' : '' %>">
+          <a href="/tools" class="nav-link">
+            <span class="nav-icon">🛠️</span>
+            <span class="nav-label">Tools Research</span>
+          </a>
+        </li>
+        <li class="nav-item <%= activePage === 'blogs' ? 'active' : '' %>">
+          <a href="/blogs" class="nav-link">
+            <span class="nav-icon">📺</span>
+            <span class="nav-label">Blogs &amp; YouTube</span>
+          </a>
+        </li>
+        <li class="nav-item <%= activePage === 'tips'  ? 'active' : '' %>">
+          <a href="/tips" class="nav-link">
+            <span class="nav-icon">💡</span>
+            <span class="nav-label">Tips &amp; Tricks</span>
+          </a>
+        </li>
+        <li class="nav-item <%= activePage === 'coach' ? 'active' : '' %>">
+          <a href="/coach" class="nav-link">
+            <span class="nav-icon">🤖</span>
+            <span class="nav-label">AI Coach</span>
+          </a>
+        </li>
+        <li class="nav-item <%= activePage === 'github' ? 'active' : '' %>">
+          <a href="/github" class="nav-link">
+            <span class="nav-icon">🐙</span>
+            <span class="nav-label">GitHub Advice</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <span class="version-badge">v1.0</span>
+      </div>
+    </nav>
+
+    <!-- Mobile overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ── Main wrapper ────────────────────────────────────── -->
+    <div class="main-wrapper">
+
+      <!-- Mobile top bar -->
+      <header class="mobile-header">
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <span class="mobile-logo">SKALO <span class="logo-accent">INTEL</span></span>
+      </header>
+
+      <!-- Page content injected here by express-ejs-layouts -->
+      <main class="main-content">
+        <%- body %>
+      </main>
+
+
+    </div>
+  </div>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

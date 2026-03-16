@@ -1,0 +1,136 @@
+{
+  "last_updated": "2026-03-16T11:01:38.485Z",
+  "reports": [
+    {
+      "id": "report_mmt2oxru_cavfs",
+      "instagram_post_id": "DV7aRL5E-rK",
+      "instagram_post_url": "https://www.instagram.com/p/DV7aRL5E-rK/",
+      "posted_at": "2026-03-16T02:19:55.000Z",
+      "thumbnail": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/651792271_17870984805566875_3578632115948095796_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2QEltF4FBZQqmJ2ldpo7WvGlAq8ztEjvJbDQglfQ-OsheFEscgb8jAzWhDr43IKBdjs&_nc_ohc=3r_4ZGz-ViEQ7kNvwE91yDz&_nc_gid=1tnmGINOj6LsggXDSk8oSw&edm=APs17CUBAAAA&ccb=7-5&oh=00_Afw4BmQewIcPWp2rzVoD9UAXcSYZ28HZXWQAmfisa34Sng&oe=69BDA2D2&_nc_sid=10d13b",
+      "summary": "AutoResearchClaw is a fully autonomous research pipeline that takes a single topic idea and generates a complete, conference-ready academic paper with zero human intervention. It handles literature gathering, citation verification, experiment code generation/execution, multi-agent peer review, and outputs a compile-ready LaTeX document through integration with OpenClaw.",
+      "repos": [
+        {
+          "name": "aiming-lab/AutoResearchClaw",
+          "github_url": "https://github.com/aiming-lab/AutoResearchClaw",
+          "stars": 668,
+          "language": "Python",
+          "what_it_does": "Autonomous end-to-end research pipeline that converts a single research idea into a publication-ready academic paper, handling literature review, citation verification, experiment execution, peer review, and LaTeX generation without human intervention.",
+          "top_10_functions": [
+            "1. Autonomous literature gathering — collects real research papers relevant to the topic",
+            "2. Citation verification — validates and eliminates fake or hallucinated citations",
+            "3. Experiment code generation — automatically writes code for research experiments",
+            "4. Experiment execution — runs generated experimental code autonomously",
+            "5. Multi-agent peer review — simulates academic peer review using LLM agents",
+            "6. LaTeX document generation — outputs publication-ready formatted papers",
+            "7. OpenClaw integration — provides chat interface for simple idea-to-paper workflow",
+            "8. Scientific discovery automation — end-to-end research pipeline orchestration",
+            "9. Paper structure generation — creates proper academic paper formatting and sections",
+            "10. Zero-intervention workflow — fully autonomous operation from idea to final paper"
+          ],
+          "recommendation": "EVALUATE",
+          "recommendation_reason": "Promising concept with solid traction (668 stars, 1128 tests passed) but this is bleeding-edge AI automation for academic research. The quality and scientific rigor of fully autonomous papers is unproven. Best used as a research assistant or draft generator rather than a replacement for human researchers. MIT license is permissive, but ethical concerns around AI-generated academic work need consideration. Worth experimenting with for ideation and rapid prototyping, but validate all outputs thoroughly.",
+          "best_for": "Researchers and academics who want to accelerate literature review, experiment scaffolding, and paper drafting; PhD students exploring research directions; teams prototyping research ideas quickly; developers building AI-assisted research tools."
+        }
+      ],
+      "generated_at": "2026-03-16T11:01:03.354Z"
+    },
+    {
+      "id": "report_mmt2p5zj_5t5wc",
+      "instagram_post_id": "DV2NzYRk2lL",
+      "instagram_post_url": "https://www.instagram.com/p/DV2NzYRk2lL/",
+      "posted_at": "2026-03-14T01:54:58.000Z",
+      "thumbnail": "https://scontent-atl3-3.cdninstagram.com/v/t51.82787-15/651616980_17870640333566875_8195603930738721980_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-atl3-3.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2QFeA-zmV0DMjW0hUAbtmrVecjt91NtCa4wC5-HKmqt3688AaulEIh8CxNqXgztIQuo&_nc_ohc=rZjih3XfRfIQ7kNvwHG2_gZ&_nc_gid=NGVZhJWiSKxYf1jiwetRCw&edm=APs17CUBAAAA&ccb=7-5&oh=00_Afy5DRgiKKOQMMjMGjr9OzYVmWMVeAK-D2F47XukjEaqfQ&oe=69BDA080&_nc_sid=10d13b",
+      "summary": "Shopify's CEO demonstrated pi-autoresearch, an autonomous AI agent that runs experimental optimization loops. The tool was used to optimize Shopify's Liquid template engine, achieving 53% speed improvement and 61% memory reduction through 120+ autonomous experiments.",
+      "repos": [
+        {
+          "name": "davebcn87/pi-autoresearch",
+          "github_url": "https://github.com/davebcn87/pi-autoresearch",
+          "stars": 1912,
+          "language": "TypeScript",
+          "what_it_does": "An autonomous experiment loop extension for pi that iteratively tries optimizations, measures results, keeps improvements, and discards failures without human intervention.",
+          "top_10_functions": [
+            "1. init_experiment — Configure optimization session with name, metric, unit, and direction",
+            "2. run_experiment — Execute any command, time wall-clock duration, and capture output",
+            "3. log_experiment — Record results, auto-commit changes, and update dashboard",
+            "4. /autoresearch command — Enter autonomous optimization mode with custom targets",
+            "5. Resume capability — Automatically continue previous sessions from autoresearch.md",
+            "6. Live widget — Real-time progress tracking in editor interface",
+            "7. Dashboard view — Full results table with experiment history and metrics",
+            "8. /autoresearch off — Stop auto-resume while preserving experiment data",
+            "9. /autoresearch clear — Reset all state and start fresh optimization session",
+            "10. Keyboard shortcuts — Toggle between inline widget and fullscreen dashboard views"
+          ],
+          "recommendation": "USE",
+          "recommendation_reason": "This is production-grade automation for performance optimization. With 1912 stars and proven results on Shopify's infrastructure (53% speed, 61% memory gains), it's a force multiplier for teams that need systematic optimization without burning senior engineer hours. Works for any metric: test speed, bundle size, training loss, build times.",
+          "best_for": "Performance-focused teams optimizing hot paths, DevOps engineers reducing build times, ML engineers tuning training pipelines, and organizations that want autonomous continuous improvement without dedicated performance engineering resources."
+        }
+      ],
+      "generated_at": "2026-03-16T11:01:13.999Z"
+    },
+    {
+      "id": "report_mmt2pg8l_ecdvm",
+      "instagram_post_id": "DV0wrAKk6yl",
+      "instagram_post_url": "https://www.instagram.com/p/DV0wrAKk6yl/",
+      "posted_at": "2026-03-13T12:21:10.000Z",
+      "thumbnail": "https://scontent-ord5-3.cdninstagram.com/v/t51.82787-15/651149816_17870549037566875_5520830573380313622_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-ord5-3.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2QHYqD3Ne02tjL2bgR3cmWiVzS5Wl98FdpPI8mYN4liKWuifg9DKgbG8KN4-ts607Fc&_nc_ohc=ryZMQbwYGbgQ7kNvwGQkCmf&_nc_gid=ScqtfpErUt0qIeEVGuncDg&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfyXlNpyzx6hMlcC5zGXw8YK0f_CEKktNNXyks17usvHYQ&oe=69BDC8BF&_nc_sid=10d13b",
+      "summary": "Garry Tan (YC CEO) open-sourced gstack, a TypeScript framework that transforms Claude Code into a team of specialized AI personas (CEO, Engineering Manager, QA Engineer, Release Manager) via slash commands. It forces strategic planning before coding and includes browser automation for full-stack QA testing.",
+      "repos": [
+        {
+          "name": "garrytan/gstack",
+          "github_url": "https://github.com/garrytan/gstack",
+          "stars": 15375,
+          "language": "TypeScript",
+          "what_it_does": "Extends Claude Code with 9 workflow skills that act as specialized team members, adding strategic planning, code review, automated shipping, browser-based QA testing, and engineering retrospectives through slash commands.",
+          "top_10_functions": [
+            "1. /plan-ceo-review — Forces strategic product thinking before implementation, helps identify the true 10-star product opportunity",
+            "2. /plan-eng-review — Technical planning mode that defines architecture, data flow, diagrams, edge cases, and test strategy",
+            "3. /review — Deep code review by paranoid staff engineer persona, triages Greptile comments and catches production-breaking bugs",
+            "4. /ship — One-command release workflow that syncs main, runs tests, resolves reviews, and opens PR",
+            "5. /browse — Browser automation that gives AI visual context by logging in, navigating your app, and capturing screenshots",
+            "6. /qa — Full QA cycle that tests app, finds bugs, fixes them with atomic commits, and re-verifies with health scores",
+            "7. /qa-only — Report-only QA testing that documents bugs without making code changes",
+            "8. /setup-browser-cookies — Session manager for importing browser cookies to maintain authenticated testing sessions",
+            "9. Greptile integration — Automated review comment triage and resolution during code review and shipping workflows"
+          ],
+          "recommendation": "USE",
+          "recommendation_reason": "15K+ stars validate strong adoption. This is opinionated tooling from a proven operator that addresses the core problem of AI coding assistants: they implement literally without strategic thinking. The browser automation and multi-tier QA are differentiators. TypeScript implementation means it's maintainable and extensible.",
+          "best_for": "Solo founders and small teams shipping products with Claude Code who want structured AI collaboration, automated QA, and strategic planning guardrails without building custom prompts or workflows from scratch."
+        }
+      ],
+      "generated_at": "2026-03-16T11:01:27.285Z"
+    },
+    {
+      "id": "report_mmt2povp_upohi",
+      "instagram_post_id": "DVzsbu_E59I",
+      "instagram_post_url": "https://www.instagram.com/p/DVzsbu_E59I/",
+      "posted_at": "2026-03-13T02:24:43.000Z",
+      "thumbnail": "https://scontent-lga3-2.cdninstagram.com/v/t51.82787-15/650829273_17870483382566875_6514063569922152307_n.jpg?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=scontent-lga3-2.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2QF-tC4GznqV0ZWR-M7mVl7ucsZYHn6-RuNCHYudSapw7E19rX5CVNNzN76hGShMkts&_nc_ohc=mQa5hUzUgEsQ7kNvwHJVKT0&_nc_gid=3JlTSaihyQEpk65GCrdegw&edm=APs17CUBAAAA&ccb=7-5&oh=00_Afwm7StYaIYynAV3AYtyGiAB91HmPs986OdnAFnS5BdYLg&oe=69BD94D5&_nc_sid=10d13b",
+      "summary": "This post showcases app-store-screenshots, an AI-native skill that automates the entire process of creating marketing screenshots for iOS App Store submissions. It integrates with AI coding agents like Claude Code and Cursor to generate advertisement-style screenshots with marketing copy, 3D device frames, and properly sized assets for all Apple device requirements.",
+      "repos": [
+        {
+          "name": "ParthJadhav/app-store-screenshots",
+          "github_url": "https://github.com/ParthJadhav/app-store-screenshots",
+          "stars": 2791,
+          "language": "JavaScript/TypeScript",
+          "what_it_does": "An AI-powered skill for coding agents that generates production-ready App Store screenshots by scaffolding a Next.js project, designing advertisement-style visuals with marketing copy, and exporting at all required Apple resolutions.",
+          "top_10_functions": [
+            "1. Interactive interview — asks about app brand, features, and style preferences",
+            "2. Next.js scaffolding — creates or integrates with existing Next.js projects",
+            "3. Advertisement design — creates marketing-focused screenshots instead of UI showcases",
+            "4. AI copywriting — generates compelling marketing copy using proven App Store patterns",
+            "5. iPhone mockup rendering — includes pre-measured iPhone frame with transparent screen area",
+            "6. Multi-resolution export — outputs PNGs at all 4 Apple-required sizes (6.9\", 6.5\", 6.3\", 6.1\")",
+            "7. Locale support — generates locale-based screenshot sets with localized copy",
+            "8. Theme presets — allows reusable templates for quick art direction changes",
+            "9. RTL layout support — handles right-to-left languages automatically",
+            "10. Bulk export — generates combinations across locale/device/theme variations"
+          ],
+          "recommendation": "USE",
+          "recommendation_reason": "Proven in production (Apple-approved app in store), saves significant time on a tedious manual process, strong community adoption (2791 stars), and works with multiple AI coding agents. The advertisement-focused approach is more effective than raw UI screenshots for App Store conversion.",
+          "best_for": "iOS developers and indie makers launching apps who want to automate screenshot creation and marketing copy generation, especially those already using AI coding agents like Claude Code or Cursor."
+        }
+      ],
+      "generated_at": "2026-03-16T11:01:38.485Z"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+<div class="page-header">
+  <h1 class="page-title">📺 Blogs &amp; YouTube</h1>
+  <p class="page-subtitle">Expert content from top AI creators and researchers</p>
+  <% if (!youtubeEnabled) { %>
+    <span class="badge-warning">YouTube API not configured — add YOUTUBE_API_KEY to .env</span>
+  <% } %>
+</div>
+
+<!-- Category filters -->
+<div class="filter-bar">
+  <% categories.forEach(function(cat) { %>
+    <button class="filter-pill" data-filter="<%= cat %>"><%= cat %></button>
+  <% }); %>
+</div>
+
+<% if (channels.length === 0) { %>
+  <div class="empty-state">
+    <div class="empty-icon">📺</div>
+    <h3>No channels yet</h3>
+    <p>Add channels to <code>web/data/blogs.json</code> to populate this page.</p>
+  </div>
+<% } else { %>
+  <div class="channels-list" id="channelsList">
+    <% channels.forEach(function(channel) { %>
+      <div class="channel-card" data-category="<%= channel.category %>">
+        <div class="channel-header">
+          <div class="channel-info">
+            <h3 class="channel-name">
+              <a href="<%= channel.url %>" target="_blank" rel="noopener"><%= channel.name %></a>
+            </h3>
+            <div class="channel-meta">
+              <span class="channel-handle"><%= channel.handle %></span>
+              <span class="channel-category-badge"><%= channel.category %></span>
+            </div>
+            <p class="channel-description"><%= channel.description %></p>
+            <% if (channel.tags && channel.tags.length > 0) { %>
+              <div class="tag-list">
+                <% channel.tags.forEach(function(tag) { %>
+                  <span class="tag">#<%= tag %></span>
+                <% }); %>
+              </div>
+            <% } %>
+          </div>
+        </div>
+
+        <% if (channel.videos && channel.videos.length > 0) { %>
+          <div class="videos-row">
+            <% channel.videos.forEach(function(video) { %>
+              <a href="<%= video.url %>" target="_blank" rel="noopener" class="video-thumb-card">
+                <% if (video.thumbnail) { %>
+                  <div class="video-thumb-wrap">
+                    <img src="<%= video.thumbnail %>" alt="<%= video.title %>" loading="lazy" />
+                    <div class="play-overlay">▶</div>
+                  </div>
+                <% } %>
+                <p class="video-title"><%= video.title %></p>
+              </a>
+            <% }); %>
+          </div>
+        <% } else if (youtubeEnabled) { %>
+          <p class="no-videos">No recent videos found for this channel ID.</p>
+        <% } else { %>
+          <p class="no-videos">Configure YOUTUBE_API_KEY to load latest videos.</p>
+        <% } %>
+      </div>
+    <% }); %>
+  </div>
+<% } %>
+
+<script>
+document.querySelectorAll('.filter-pill').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.channel-card').forEach(card => {
+      card.style.display = (filter === 'All' || card.dataset.category === filter) ? '' : 'none';
+    });
+  });
+});
+document.querySelector('.filter-pill')?.classList.add('active');
+</script>

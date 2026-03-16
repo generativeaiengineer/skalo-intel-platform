@@ -1,0 +1,140 @@
+<div class="page-header">
+  <h1 class="page-title">🛠️ Tools Research</h1>
+  <p class="page-subtitle">Curated AI tools, frameworks, and developer resources</p>
+</div>
+
+<!-- Category filters -->
+<div class="filter-bar">
+  <% categories.forEach(function(cat) { %>
+    <button class="filter-pill" data-filter="<%= cat %>"><%= cat %></button>
+  <% }); %>
+</div>
+
+<!-- Tools grid -->
+<% if (tools.length === 0) { %>
+  <div class="empty-state">
+    <div class="empty-icon">🛠️</div>
+    <h3>No tools yet</h3>
+    <p>Add your first tool using the form below.</p>
+  </div>
+<% } else { %>
+  <div class="tools-grid" id="toolsGrid">
+    <% tools.forEach(function(tool) { %>
+      <div class="tool-card" data-category="<%= tool.category %>">
+        <div class="tool-card-header">
+          <div>
+            <h3 class="tool-name"><%= tool.name %></h3>
+            <span class="tool-category"><%= tool.category %></span>
+          </div>
+          <% if (tool.rating) { %>
+            <div class="tool-rating">
+              <% for (var i = 1; i <= 5; i++) { %>
+                <span class="star <%= i <= tool.rating ? 'filled' : '' %>">★</span>
+              <% } %>
+            </div>
+          <% } %>
+        </div>
+
+        <p class="tool-tagline"><%= tool.tagline %></p>
+
+        <% if (tool.notes) { %>
+          <p class="tool-notes"><%= tool.notes %></p>
+        <% } %>
+
+        <% if (tool.tags && tool.tags.length > 0) { %>
+          <div class="tag-list">
+            <% tool.tags.forEach(function(tag) { %>
+              <span class="tag">#<%= tag %></span>
+            <% }); %>
+          </div>
+        <% } %>
+
+        <div class="tool-card-footer">
+          <a href="<%= tool.url %>" target="_blank" rel="noopener" class="btn-visit">
+            Visit →
+          </a>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+<% } %>
+
+<!-- Add Tool Form -->
+<section class="add-form-section">
+  <h2 class="section-title">Add a Tool</h2>
+  <form class="add-form" id="addToolForm">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="toolName">Name *</label>
+        <input type="text" id="toolName" name="name" placeholder="e.g. Perplexity AI" required />
+      </div>
+      <div class="form-group">
+        <label for="toolCategory">Category</label>
+        <input type="text" id="toolCategory" name="category" placeholder="e.g. AI Assistant" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="toolUrl">URL *</label>
+      <input type="url" id="toolUrl" name="url" placeholder="https://..." required />
+    </div>
+    <div class="form-group">
+      <label for="toolTagline">Tagline</label>
+      <input type="text" id="toolTagline" name="tagline" placeholder="Short description" />
+    </div>
+    <div class="form-group">
+      <label for="toolNotes">Notes</label>
+      <textarea id="toolNotes" name="notes" rows="2" placeholder="Personal notes or use case..."></textarea>
+    </div>
+    <div class="form-group">
+      <label for="toolTags">Tags (comma-separated)</label>
+      <input type="text" id="toolTags" name="tags" placeholder="ai, coding, automation" />
+    </div>
+    <button type="submit" class="btn-submit">+ Add Tool</button>
+    <span class="form-status" id="toolFormStatus"></span>
+  </form>
+</section>
+
+<script>
+// Category filter
+document.querySelectorAll('.filter-pill').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.tool-card').forEach(card => {
+      card.style.display = (filter === 'All' || card.dataset.category === filter) ? '' : 'none';
+    });
+  });
+});
+// Set 'All' active on load
+document.querySelector('.filter-pill')?.classList.add('active');
+
+// Add tool form
+document.getElementById('addToolForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const status = document.getElementById('toolFormStatus');
+  const data = Object.fromEntries(new FormData(form).entries());
+  status.textContent = 'Saving...';
+  status.className = 'form-status';
+  try {
+    const res = await fetch('/api/tools/add', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    const json = await res.json();
+    if (json.success) {
+      status.textContent = '✓ Tool added! Refresh to see it.';
+      status.className = 'form-status success';
+      form.reset();
+    } else {
+      status.textContent = '✗ ' + (json.error || 'Failed');
+      status.className = 'form-status error';
+    }
+  } catch (err) {
+    status.textContent = '✗ Network error';
+    status.className = 'form-status error';
+  }
+});
+</script>

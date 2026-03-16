@@ -1,0 +1,132 @@
+<div class="page-header">
+  <h1 class="page-title">💡 Tips &amp; Tricks</h1>
+  <p class="page-subtitle">Prompt engineering techniques and Claude best practices</p>
+  <% if (kbCount > 0) { %>
+    <span class="kb-badge"><%= kbCount %> entries from Anthropic knowledge base</span>
+  <% } %>
+</div>
+
+<!-- Category filters -->
+<div class="filter-bar">
+  <% categories.forEach(function(cat) { %>
+    <button class="filter-pill" data-filter="<%= cat %>"><%= cat %></button>
+  <% }); %>
+</div>
+
+<% if (tips.length === 0) { %>
+  <div class="empty-state">
+    <div class="empty-icon">💡</div>
+    <h3>No tips yet</h3>
+    <p>Add tips using the form below, or check that <code>knowledge/anthropic-knowledge.json</code> exists.</p>
+  </div>
+<% } else { %>
+  <div class="tips-grid" id="tipsGrid">
+    <% tips.forEach(function(tip) { %>
+      <div class="tip-card <%= tip.source === 'knowledge_base' ? 'kb-tip' : '' %>" data-category="<%= tip.category %>">
+        <div class="tip-header" onclick="this.parentElement.classList.toggle('expanded')">
+          <div class="tip-header-left">
+            <% if (tip.source === 'knowledge_base') { %>
+              <span class="tip-source-badge kb">KB</span>
+            <% } else { %>
+              <span class="tip-source-badge manual">TIP</span>
+            <% } %>
+            <h3 class="tip-title"><%= tip.title %></h3>
+          </div>
+          <div class="tip-header-right">
+            <span class="tip-category-badge"><%= tip.category %></span>
+            <span class="expand-icon">▼</span>
+          </div>
+        </div>
+
+        <div class="tip-body">
+          <p class="tip-content"><%= tip.content %></p>
+
+          <% if (tip.tags && tip.tags.length > 0) { %>
+            <div class="tag-list">
+              <% tip.tags.forEach(function(tag) { %>
+                <span class="tag"><%= tag %></span>
+              <% }); %>
+            </div>
+          <% } %>
+
+          <% if (tip.url) { %>
+            <a href="<%= tip.url %>" target="_blank" rel="noopener" class="tip-source-link">
+              Read docs →
+            </a>
+          <% } %>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+<% } %>
+
+<!-- Add Tip Form -->
+<section class="add-form-section">
+  <h2 class="section-title">Add a Tip</h2>
+  <form class="add-form" id="addTipForm">
+    <div class="form-group">
+      <label for="tipTitle">Title *</label>
+      <input type="text" id="tipTitle" name="title" placeholder="e.g. Use few-shot examples for structured output" required />
+    </div>
+    <div class="form-group">
+      <label for="tipContent">Content *</label>
+      <textarea id="tipContent" name="content" rows="4" placeholder="Explain the tip in detail..." required></textarea>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="tipCategory">Category</label>
+        <input type="text" id="tipCategory" name="category" placeholder="e.g. Prompt Engineering" />
+      </div>
+      <div class="form-group">
+        <label for="tipTags">Tags (comma-separated)</label>
+        <input type="text" id="tipTags" name="tags" placeholder="xml, structure, few-shot" />
+      </div>
+    </div>
+    <button type="submit" class="btn-submit">+ Add Tip</button>
+    <span class="form-status" id="tipFormStatus"></span>
+  </form>
+</section>
+
+<script>
+// Filter pills
+document.querySelectorAll('.filter-pill').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.tip-card').forEach(card => {
+      card.style.display = (filter === 'All' || card.dataset.category === filter) ? '' : 'none';
+    });
+  });
+});
+document.querySelector('.filter-pill')?.classList.add('active');
+
+// Add tip form
+document.getElementById('addTipForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const status = document.getElementById('tipFormStatus');
+  const data = Object.fromEntries(new FormData(form).entries());
+  status.textContent = 'Saving...';
+  status.className = 'form-status';
+  try {
+    const res = await fetch('/api/tips/add', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    const json = await res.json();
+    if (json.success) {
+      status.textContent = '✓ Tip added! Refresh to see it.';
+      status.className = 'form-status success';
+      form.reset();
+    } else {
+      status.textContent = '✗ ' + (json.error || 'Failed');
+      status.className = 'form-status error';
+    }
+  } catch (err) {
+    status.textContent = '✗ Network error';
+    status.className = 'form-status error';
+  }
+});
+</script>

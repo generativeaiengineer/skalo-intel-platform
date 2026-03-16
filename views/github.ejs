@@ -1,0 +1,264 @@
+<div class="page-header">
+  <div class="page-header-main">
+    <div>
+      <h1 class="page-title">🐙 GitHub Advice</h1>
+      <p class="page-subtitle">Intelligence reports from trending GitHub repos spotted on social media</p>
+    </div>
+    <button class="btn-refresh" id="refreshBtn" onclick="refreshGithub()">
+      <span class="refresh-icon">🔄</span>
+      <span class="refresh-label">Refresh</span>
+    </button>
+  </div>
+  <% if (lastUpdated) { %>
+    <div class="fetch-status-bar">
+      <span class="last-updated">Last updated: <%= lastUpdated %></span>
+      <span class="status-pill ok"><%= reports.length %> report<%= reports.length !== 1 ? 's' : '' %></span>
+    </div>
+  <% } %>
+</div>
+
+<% if (reports.length === 0) { %>
+  <div class="empty-state">
+    <div class="empty-icon">🐙</div>
+    <h3>No reports yet</h3>
+    <p>Run: <code>npm run fetch-github</code> to populate this page.</p>
+  </div>
+<% } else { %>
+
+  <!-- Search + Language filters -->
+  <div class="filter-bar" style="flex-wrap:wrap; gap:8px; margin-bottom:8px;">
+    <input
+      type="text"
+      id="githubSearch"
+      placeholder="Search repos or summaries…"
+      style="background:var(--surface-2,#1c1d26);border:1px solid var(--border,#2a2b36);color:var(--text,#e2e4f0);padding:6px 12px;border-radius:20px;font-size:13px;outline:none;width:220px;"
+      oninput="filterGithub()"
+    />
+  </div>
+  <div class="filter-bar" style="margin-bottom:24px;">
+    <% languages.forEach(function(lang) { %>
+      <button class="filter-pill lang-pill" data-lang="<%= lang %>"><%= lang %></button>
+    <% }); %>
+  </div>
+
+  <!-- Reports -->
+  <div id="githubGrid">
+    <% reports.forEach(function(report) { %>
+      <%
+        // Collect languages on this report for data attribute
+        const reportLangs = (report.repos || []).map(r => r.language || '').filter(Boolean);
+        const reportLangsAttr = reportLangs.join(',');
+        // Format posted date
+        const postedDate = report.posted_at
+          ? new Date(report.posted_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+          : '';
+      %>
+      <div class="tip-card github-report-card"
+           data-langs="<%= reportLangsAttr %>"
+           data-searchtext="<%= (report.summary + ' ' + (report.repos||[]).map(r=>r.name).join(' ')).toLowerCase().replace(/"/g,'') %>">
+
+        <!-- Report header: thumbnail + meta -->
+        <div class="tip-header" onclick="this.parentElement.classList.toggle('expanded')">
+          <div class="tip-header-left" style="gap:14px; align-items:flex-start;">
+            <% if (report.thumbnail) { %>
+              <a href="<%= report.instagram_post_url %>" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <img
+                  src="<%= report.thumbnail %>"
+                  alt="Instagram post thumbnail"
+                  style="width:64px;height:64px;object-fit:cover;border-radius:8px;flex-shrink:0;border:1px solid var(--border,#2a2b36);"
+                  onerror="this.style.display='none'"
+                />
+              </a>
+            <% } %>
+            <div>
+              <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px;">
+                <% (report.repos || []).forEach(function(repo) { %>
+                  <span class="tip-source-badge kb" style="font-size:11px;"><%= repo.language || '?' %></span>
+                <% }); %>
+                <% if (postedDate) { %>
+                  <span style="font-size:12px;color:var(--text-muted,#6b6f85);">📅 <%= postedDate %></span>
+                <% } %>
+              </div>
+              <h3 class="tip-title" style="font-size:14px;line-height:1.4;">
+                <% (report.repos || []).forEach(function(repo, i) { %>
+                  <% if (i > 0) { %> &amp; <% } %>
+                  <a href="<%= repo.github_url %>" target="_blank" rel="noopener"
+                     onclick="event.stopPropagation()"
+                     style="color:var(--accent-blue,#5ba8ff);text-decoration:none;">
+                    <%= repo.name %>
+                  </a>
+                <% }); %>
+              </h3>
+            </div>
+          </div>
+          <div class="tip-header-right">
+            <% (report.repos || []).forEach(function(repo) { %>
+              <span class="status-pill <%= repo.recommendation === 'USE' ? 'ok' : repo.recommendation === 'SKIP' ? 'err' : '' %>"
+                    style="font-size:11px;padding:3px 8px;">
+                <%= repo.recommendation %>
+              </span>
+            <% }); %>
+            <span class="expand-icon">▼</span>
+          </div>
+        </div>
+
+        <!-- Expanded body -->
+        <div class="tip-body">
+
+          <!-- Summary -->
+          <% if (report.summary) { %>
+            <p style="color:var(--text-muted,#9ca0b8);font-size:13px;line-height:1.6;margin-bottom:20px;border-left:3px solid var(--accent,#3bf0a0);padding-left:12px;">
+              <%= report.summary %>
+            </p>
+          <% } %>
+
+          <!-- Repo details -->
+          <% (report.repos || []).forEach(function(repo) { %>
+            <div style="margin-bottom:24px;padding:16px;background:var(--surface-2,#1c1d26);border-radius:10px;border:1px solid var(--border,#2a2b36);">
+
+              <!-- Repo name + stars + language -->
+              <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
+                <a href="<%= repo.github_url %>" target="_blank" rel="noopener"
+                   style="color:var(--accent-blue,#5ba8ff);font-weight:600;font-size:15px;text-decoration:none;">
+                  🐙 <%= repo.name %>
+                </a>
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <% if (repo.stars) { %>
+                    <span class="tag">⭐ <%= repo.stars.toLocaleString() %></span>
+                  <% } %>
+                  <% if (repo.language) { %>
+                    <span class="tag"><%= repo.language %></span>
+                  <% } %>
+                  <span class="status-pill <%= repo.recommendation === 'USE' ? 'ok' : repo.recommendation === 'SKIP' ? 'err' : '' %>"
+                        style="font-size:11px;padding:3px 8px;">
+                    <%= repo.recommendation %>
+                  </span>
+                </div>
+              </div>
+
+              <!-- What it does -->
+              <% if (repo.what_it_does) { %>
+                <p style="font-size:13px;color:var(--text,#e2e4f0);line-height:1.6;margin-bottom:12px;">
+                  <%= repo.what_it_does %>
+                </p>
+              <% } %>
+
+              <!-- Top 10 functions — expandable -->
+              <% if (repo.top_10_functions && repo.top_10_functions.length > 0) { %>
+                <div class="tip-card" style="margin-bottom:12px;border:1px solid var(--border,#2a2b36);">
+                  <div class="tip-header" onclick="this.parentElement.classList.toggle('expanded')" style="padding:10px 14px;">
+                    <div class="tip-header-left">
+                      <span class="tip-source-badge manual" style="font-size:10px;">TOP</span>
+                      <span style="font-size:13px;font-weight:500;color:var(--text,#e2e4f0);">Key Functions &amp; Features</span>
+                    </div>
+                    <span class="expand-icon" style="font-size:11px;">▼</span>
+                  </div>
+                  <div class="tip-body" style="padding:4px 14px 12px;">
+                    <ol style="margin:0;padding-left:18px;list-style:decimal;">
+                      <% repo.top_10_functions.forEach(function(fn) { %>
+                        <li style="font-size:12px;color:var(--text-muted,#9ca0b8);line-height:1.7;"><%= fn.replace(/^\d+\.\s*/, '') %></li>
+                      <% }); %>
+                    </ol>
+                  </div>
+                </div>
+              <% } %>
+
+              <!-- Recommendation reason -->
+              <% if (repo.recommendation_reason) { %>
+                <div style="background:var(--bg,#0a0b0f);border-radius:8px;padding:10px 14px;margin-bottom:10px;">
+                  <p style="font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted,#6b6f85);margin-bottom:4px;">Why this recommendation</p>
+                  <p style="font-size:13px;color:var(--text,#e2e4f0);line-height:1.6;margin:0;"><%= repo.recommendation_reason %></p>
+                </div>
+              <% } %>
+
+              <!-- Best for -->
+              <% if (repo.best_for) { %>
+                <div style="display:flex;align-items:flex-start;gap:8px;">
+                  <span style="font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent,#3bf0a0);white-space:nowrap;padding-top:1px;">Best for</span>
+                  <p style="font-size:13px;color:var(--text-muted,#9ca0b8);line-height:1.6;margin:0;"><%= repo.best_for %></p>
+                </div>
+              <% } %>
+
+            </div>
+          <% }); %>
+
+          <!-- Link to original IG post -->
+          <a href="<%= report.instagram_post_url %>" target="_blank" rel="noopener" class="tip-source-link">
+            View original post →
+          </a>
+
+        </div>
+      </div>
+    <% }); %>
+  </div>
+
+<% } %>
+
+<script>
+async function refreshGithub() {
+  const btn   = document.getElementById('refreshBtn');
+  const label = btn.querySelector('.refresh-label');
+  const icon  = btn.querySelector('.refresh-icon');
+
+  btn.disabled = true;
+  btn.classList.add('refreshing');
+  label.textContent = 'Refreshing...';
+  icon.style.animation = 'spin 1s linear infinite';
+
+  function reset() {
+    btn.disabled = false;
+    btn.classList.remove('refreshing');
+    label.textContent = 'Refresh';
+    icon.textContent  = '🔄';
+    icon.style.animation = '';
+  }
+
+  try {
+    const res  = await fetch('/api/refresh-github', { method: 'POST' });
+    const data = await res.json();
+    if (data.success) {
+      label.textContent = 'Done!';
+      icon.textContent  = '✅';
+      icon.style.animation = '';
+      setTimeout(() => window.location.reload(), 900);
+    } else {
+      label.textContent = 'Failed';
+      icon.textContent  = '⚠️';
+      icon.style.animation = '';
+      setTimeout(reset, 3000);
+    }
+  } catch {
+    label.textContent = 'Error';
+    icon.style.animation = '';
+    setTimeout(reset, 3000);
+  }
+}
+
+// Expand/collapse — mark first report open on load
+document.querySelectorAll('.github-report-card')[0]?.classList.add('expanded');
+
+// Active lang pill on load
+document.querySelector('.lang-pill')?.classList.add('active');
+
+// Language filter pills
+document.querySelectorAll('.lang-pill').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.lang-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterGithub();
+  });
+});
+
+function filterGithub() {
+  const activeLang = document.querySelector('.lang-pill.active')?.dataset.lang || 'All';
+  const query = document.getElementById('githubSearch')?.value.toLowerCase().trim() || '';
+
+  document.querySelectorAll('.github-report-card').forEach(card => {
+    const langs = card.dataset.langs || '';
+    const text  = card.dataset.searchtext || '';
+    const langMatch = activeLang === 'All' || langs.split(',').includes(activeLang);
+    const textMatch = !query || text.includes(query);
+    card.style.display = (langMatch && textMatch) ? '' : 'none';
+  });
+}
+</script>

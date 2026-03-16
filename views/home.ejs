@@ -1,0 +1,123 @@
+<div class="page-header">
+  <div class="page-header-main">
+    <div>
+      <h1 class="page-title">📰 AI Market News</h1>
+      <p class="page-subtitle">Latest developments in AI — auto-updated every 6 hours</p>
+    </div>
+    <button class="btn-refresh" id="refreshBtn" onclick="refreshNews()">
+      <span class="refresh-icon">🔄</span>
+      <span class="refresh-label">Refresh</span>
+    </button>
+  </div>
+
+  <% if (lastUpdated || fetchStatus) { %>
+    <div class="fetch-status-bar">
+      <% if (lastUpdated) { %>
+        <span class="last-updated">Last updated: <%= lastUpdated %></span>
+      <% } %>
+      <% if (fetchStatus) { %>
+        <span class="status-pill <%= fetchStatus.hackernews === 'ok' ? 'ok' : 'err' %>">
+          HN <%= fetchStatus.hackernews === 'ok' ? '✅' : '⚠️' %>
+        </span>
+        <span class="status-pill <%= fetchStatus.producthunt === 'ok' ? 'ok' : 'err' %>">
+          PH <%= fetchStatus.producthunt === 'ok' ? '✅' : '⚠️' %>
+        </span>
+      <% } %>
+    </div>
+  <% } %>
+</div>
+
+<% if (articles.length === 0) { %>
+  <div class="empty-state">
+    <div class="empty-icon">📭</div>
+    <h3>No news yet</h3>
+    <p>Run: <code>npm run fetch-news</code> to populate this page — or click Refresh above.</p>
+  </div>
+<% } else { %>
+
+  <!-- ── Today ──────────────────────────────────────────── -->
+  <% if (todayArticles.length > 0) { %>
+    <section class="news-section">
+      <h2 class="section-title">Today <span class="count-badge"><%= todayArticles.length %></span></h2>
+      <div class="news-grid">
+        <% todayArticles.forEach(function(article) { %>
+          <%- include('partials/news-card', { article: article }) %>
+        <% }); %>
+      </div>
+    </section>
+  <% } %>
+
+  <!-- ── This Week ──────────────────────────────────────── -->
+  <% if (weekArticles.length > 0) { %>
+    <section class="news-section">
+      <h2 class="section-title">This Week <span class="count-badge"><%= weekArticles.length %></span></h2>
+      <div class="news-grid news-grid-sm">
+        <% weekArticles.forEach(function(article) { %>
+          <%- include('partials/news-card', { article: article }) %>
+        <% }); %>
+      </div>
+    </section>
+  <% } %>
+
+  <!-- ── Earlier ────────────────────────────────────────── -->
+  <% if (earlierArticles.length > 0) { %>
+    <section class="news-section">
+      <h2 class="section-title">Earlier <span class="count-badge"><%= earlierArticles.length %></span></h2>
+      <ul class="news-list-compact">
+        <% earlierArticles.forEach(function(article) { %>
+          <li class="news-list-item">
+            <span class="source-badge source-<%= article.source %>">
+              <%= article.source === 'hackernews' ? 'HN' : 'PH' %>
+            </span>
+            <a href="<%= article.url %>" target="_blank" rel="noopener" class="news-list-title">
+              <%= article.title %>
+            </a>
+            <span class="time-ago"><%= article.timeAgo %></span>
+          </li>
+        <% }); %>
+      </ul>
+    </section>
+  <% } %>
+
+<% } %>
+
+<script>
+async function refreshNews() {
+  const btn   = document.getElementById('refreshBtn');
+  const label = btn.querySelector('.refresh-label');
+  const icon  = btn.querySelector('.refresh-icon');
+
+  btn.disabled = true;
+  btn.classList.add('refreshing');
+  label.textContent = 'Refreshing...';
+  icon.style.animation = 'spin 1s linear infinite';
+
+  function reset() {
+    btn.disabled = false;
+    btn.classList.remove('refreshing');
+    label.textContent = 'Refresh';
+    icon.textContent  = '🔄';
+    icon.style.animation = '';
+  }
+
+  try {
+    const res  = await fetch('/api/refresh-news', { method: 'POST' });
+    const data = await res.json();
+    if (data.success) {
+      label.textContent = 'Done!';
+      icon.textContent  = '✅';
+      icon.style.animation = '';
+      setTimeout(() => window.location.reload(), 900);
+    } else {
+      label.textContent = 'Failed';
+      icon.textContent  = '⚠️';
+      icon.style.animation = '';
+      setTimeout(reset, 3000);
+    }
+  } catch {
+    label.textContent = 'Error';
+    icon.style.animation = '';
+    setTimeout(reset, 3000);
+  }
+}
+</script>

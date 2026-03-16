@@ -1,0 +1,105 @@
+{
+  "tools": [
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "tagline": "Agentic coding environment by Anthropic",
+      "url": "https://claude.ai/code",
+      "category": "AI Assistant",
+      "tags": [
+        "coding",
+        "agentic",
+        "anthropic"
+      ],
+      "rating": 5,
+      "notes": "Our primary AI coding environment. Runs agents, edits files, executes tests.",
+      "added_at": "2026-03-13T09:00:00.000Z"
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "tagline": "AI-first code editor built on VS Code",
+      "url": "https://cursor.sh",
+      "category": "AI Assistant",
+      "tags": [
+        "coding",
+        "editor",
+        "vscode"
+      ],
+      "rating": 4,
+      "notes": "Great for quick edits. Tabs autocomplete is impressive.",
+      "added_at": "2026-03-13T09:00:00.000Z"
+    },
+    {
+      "id": "firecrawl",
+      "name": "Firecrawl",
+      "tagline": "Turn websites into LLM-ready markdown",
+      "url": "https://firecrawl.dev",
+      "category": "Data & Scraping",
+      "tags": [
+        "scraping",
+        "markdown",
+        "llm"
+      ],
+      "rating": 4,
+      "notes": "Used for web research. Converts pages to clean markdown for AI processing.",
+      "added_at": "2026-03-13T09:00:00.000Z"
+    },
+    {
+      "id": "supabase",
+      "name": "Supabase",
+      "tagline": "Open-source Firebase alternative with PostgreSQL",
+      "url": "https://supabase.com",
+      "category": "Database",
+      "tags": [
+        "database",
+        "postgresql",
+        "realtime"
+      ],
+      "rating": 5,
+      "notes": "Our central database. Stores all agent outputs, news, videos, stack comparisons.",
+      "added_at": "2026-03-13T09:00:00.000Z"
+    },
+    {
+      "id": "n8n",
+      "name": "n8n",
+      "tagline": "Open-source workflow automation with AI nodes",
+      "url": "https://n8n.io",
+      "category": "Automation",
+      "tags": [
+        "automation",
+        "workflow",
+        "open-source"
+      ],
+      "rating": 4,
+      "notes": "Powerful for connecting APIs and automating pipelines. Self-hostable.",
+      "added_at": "2026-03-13T09:00:00.000Z"
+    },
+    {
+      "id": "langchain",
+      "name": "LangChain",
+      "tagline": "Framework for building LLM-powered applications",
+      "url": "https://langchain.com",
+      "category": "AI Framework",
+      "tags": [
+        "llm",
+        "framework",
+        "python"
+      ],
+      "rating": 3,
+      "notes": "Powerful but complex. Good for RAG pipelines. We prefer direct API calls for simplicity.",
+      "added_at": "2026-03-13T09:00:00.000Z"
+    },
+    {
+      "id": "tool_1773419717515",
+      "name": "Test Tool",
+      "tagline": "",
+      "url": "https://example.com",
+      "category": "Testing",
+      "tags": [],
+      "rating": null,
+      "notes": "",
+      "added_at": "2026-03-13T16:35:17.515Z"
+    }
+  ]
+}

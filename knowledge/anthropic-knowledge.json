@@ -1,0 +1,791 @@
+{
+  "metadata": {
+    "generated_at": "2026-03-13",
+    "source_domains": ["docs.anthropic.com", "anthropic.com", "anthropic.skilljar.com"],
+    "total_pages_crawled": 56,
+    "categories": ["Prompt Engineering", "Claude Code", "API", "Models", "Safety"],
+    "language": "nl",
+    "purpose": "Intel Platform - Muhammed",
+    "summary_max_words": 200
+  },
+  "pages": [
+    {
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "title": "Prompt Engineering Overview",
+      "category": "Prompt Engineering",
+      "type": "documentation",
+      "summary": "Deze pagina biedt een overzicht van prompt engineering voor Claude. Voordat je begint, moet je duidelijke succescriteria definiëren, empirische tests opzetten en een eerste conceptprompt hebben. De pagina verwijst naar de prompt generator in de Claude Console voor het maken van een eerste prompt, en naar de best practices-gids voor modelspecifieke afstemming. Niet elk probleem is het best op te lossen met prompt engineering; soms is het kiezen van een ander model effectiever voor latentie en kosten. Alle prompttechnieken, van helderheid en voorbeelden tot XML-structurering, rolprompting, denken en prompt chaining, worden behandeld in de best practices-referentie. Er zijn ook interactieve tutorials beschikbaar via GitHub en Google Sheets voor wie liever leert door te doen.",
+      "key_concepts": [
+        "Succescriteria en evaluaties definiëren",
+        "Prompt generator in Claude Console",
+        "Prompttechnieken (XML, rolprompting, chaining)",
+        "Interactieve tutorials (GitHub, Google Sheets)",
+        "Wanneer wel en niet prompt engineering toepassen"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices",
+      "title": "Prompting Best Practices",
+      "category": "Prompt Engineering",
+      "type": "documentation",
+      "summary": "De uitgebreide referentiegids voor prompt engineering met Claude's nieuwste modellen (Opus 4.6, Sonnet 4.6, Haiku 4.5). De gids behandelt algemene principes: wees duidelijk en direct, geef context, gebruik voorbeelden (few-shot prompting), structureer prompts met XML-tags, en geef Claude een rol via de system prompt. Voor output-controle worden tips gegeven over communicatiestijl, opmaakbeheer, LaTeX-output en het migreren van prefilled responses. Het gedeelte over tool use behandelt expliciete instructies, parallelle tool-aanroepen en het balanceren van proactiviteit. Denk- en redeneermogelijkheden worden besproken, inclusief adaptive thinking, extended thinking en de effort-parameter. Voor agentische systemen worden long-horizon reasoning, state management, subagent-orkestratie, prompt chaining en het minimaliseren van hallucinaties behandeld. Tot slot zijn er tips voor vision, frontend design en migratie van eerdere Claude-versies.",
+      "key_concepts": [
+        "XML-tags voor promptstructuur",
+        "Adaptive thinking en effort-parameter",
+        "Parallelle tool-aanroepen",
+        "Agentische systemen en state management",
+        "Migratie van prefilled responses en eerdere modellen"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-generator",
+      "title": "Console Prompting Tools",
+      "category": "Prompt Engineering",
+      "type": "documentation",
+      "summary": "Deze pagina beschrijft de drie prompttools in de Claude Console. De prompt generator helpt bij het 'blanco pagina'-probleem door hoogwaardige prompttemplates te genereren op basis van je taakbeschrijving. Prompt templates en variabelen scheiden vaste instructies van dynamische inhoud (gebruikersinvoer, RAG-context) met {{dubbele haken}} als placeholders, wat zorgt voor consistentie, testbaarheid en schaalbaarheid. De prompt improver analyseert en verbetert bestaande prompts in vier stappen: voorbeeldidentificatie, initieel ontwerp, chain-of-thought verfijning en voorbeeldverbetering. Het resultaat bevat gedetailleerde redeneringsinstructies, XML-tags voor organisatie en gestandaardiseerde voorbeeldopmaak. De prompt improver werkt het best voor complexe taken waar nauwkeurigheid belangrijker is dan snelheid. Er wordt ook uitgelegd hoe je testvoorbeelden kunt genereren met de Test Case Generator.",
+      "key_concepts": [
+        "Prompt generator voor eerste ontwerp",
+        "Templates met variabelen ({{placeholders}})",
+        "Prompt improver met chain-of-thought verfijning",
+        "XML-tags voor promptorganisatie",
+        "Test Case Generator voor evaluatie"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/extended-thinking-tips",
+      "title": "Extended Thinking Tips",
+      "category": "Prompt Engineering",
+      "type": "documentation",
+      "summary": "De extended thinking tips zijn geïntegreerd in de Prompting Best Practices-pagina. Claude's nieuwste modellen bieden denkmogelijkheden voor complexe meerstaps-redenering. Claude Opus 4.6 gebruikt adaptive thinking, waarbij het model dynamisch bepaalt wanneer en hoeveel het nadenkt. Claude Sonnet 4.6 ondersteunt zowel adaptive als handmatige extended thinking met interleaved modus. De effort-parameter (low, medium, high, max) regelt de denkdiepte. Tips omvatten: geef algemene instructies boven prescriptieve stappen, gebruik thinking-tags in few-shot voorbeelden, vraag Claude om zelfcontrole, en gebruik handmatige chain-of-thought als fallback wanneer thinking uitgeschakeld is. Bij overmatig denken kun je instructies toevoegen om redenering te beperken of de effort-instelling verlagen. Migratie van budget_tokens naar de effort-parameter wordt uitgelegd met codevoorbeelden.",
+      "key_concepts": [
+        "Adaptive thinking vs. extended thinking",
+        "Effort-parameter (low/medium/high/max)",
+        "Interleaved thinking voor tool-reflectie",
+        "Zelfcontrole en chain-of-thought",
+        "Migratie van budget_tokens naar effort"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview#prompt-library",
+      "title": "Prompt Library (geïntegreerd in Console tools)",
+      "category": "Prompt Engineering",
+      "type": "documentation",
+      "summary": "De prompt library als aparte pagina bestaat niet meer in de huidige documentatiestructuur. De functionaliteit is verdeeld over de Console Prompting Tools. De overview-pagina verwijst naar de prompt generator in het Claude Console dashboard voor het maken van eerste prompts, en naar promptingtools (prompt generator, templates met variabelen, en prompt improver) voor het bouwen en verfijnen van prompts. Daarnaast zijn er interactieve tutorials beschikbaar: een uitgebreide GitHub-tutorial met voorbeelden die alle prompt engineering-concepten uit de documentatie behandelt, en een lichtere Google Sheets-versie. Gebruikers worden aangemoedigd om eerst succescriteria te definiëren en evaluaties op te zetten voordat ze met prompt engineering beginnen.",
+      "key_concepts": [
+        "Prompt library geïntegreerd in Console tools",
+        "Prompt generator voor startprompts",
+        "Interactieve tutorials (GitHub en Google Sheets)",
+        "Succescriteria en evaluaties als voorwaarde",
+        "Promptingtools voor iteratief verbeteren"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview",
+      "title": "Claude Code overview",
+      "category": "Claude Code",
+      "type": "documentation",
+      "summary": "Claude Code is een AI-aangedreven coderingsassistent die je hele codebase begrijpt en helpt bij het bouwen van functies, het oplossen van bugs en het automatiseren van ontwikkeltaken. Het is beschikbaar in meerdere omgevingen: terminal (CLI), VS Code-extensie, desktop-app, webbrowser en JetBrains IDE. Claude Code kan bestanden bewerken, commando's uitvoeren, git-commits en pull requests maken, en verbinding maken met externe tools via het Model Context Protocol (MCP). Het ondersteunt aanpassing via CLAUDE.md-instructiebestanden, custom skills en hooks. Gebruikers kunnen meerdere agenten parallel laten werken via subagents en agent teams. Claude Code volgt de Unix-filosofie en is composeerbaar: je kunt data pipen, het in CI/CD gebruiken en het combineren met andere tools.",
+      "key_concepts": [
+        "Multi-platform beschikbaarheid (Terminal, VS Code, Desktop, Web, JetBrains)",
+        "Model Context Protocol (MCP) voor externe tool-integratie",
+        "CLAUDE.md geheugenbestanden en custom skills",
+        "Subagents en agent teams voor parallelle taken",
+        "Unix-achtige composability en CI/CD-integratie"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/claude-code/ide-integrations",
+      "title": "Use Claude Code in VS Code",
+      "category": "Claude Code",
+      "type": "documentation",
+      "summary": "De VS Code-extensie biedt een native grafische interface voor Claude Code, direct geïntegreerd in je IDE. Je kunt plannen bekijken en bewerken voordat je ze accepteert, bewerkingen automatisch accepteren, bestanden vermelden met @-mentions inclusief specifieke regelbereiken, gespreksgeschiedenis openen en meerdere gesprekken in aparte tabbladen voeren. De extensie ondersteunt permissiemodi (normaal, plan, auto-accept), uitgebreid denken (extended thinking), hervatting van eerdere sessies, en checkpoints om bestandswijzigingen terug te draaien. Je kunt verbinding maken met Chrome voor browsertaken, MCP-servers configureren voor externe tools, en plugins beheren.",
+      "key_concepts": [
+        "VS Code extensie met grafische chat-interface",
+        "Permissiemodi (normaal, plan, auto-accept)",
+        "Checkpoints voor het terugdraaien van wijzigingen",
+        "@-mentions voor bestands- en mapverwijzingen",
+        "MCP-serverintegratie en plugin-beheer"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/claude-code/enterprise-setup",
+      "title": "Enterprise deployment overview",
+      "category": "Claude Code",
+      "type": "documentation",
+      "summary": "Organisaties kunnen Claude Code implementeren via Anthropic rechtstreeks (Claude for Teams/Enterprise) of via cloudproviders (Amazon Bedrock, Google Vertex AI, Microsoft Foundry). Claude for Teams is zelfbediening met samenwerkingsfuncties en beheerderstools. Claude for Enterprise voegt SSO, rolgebaseerde machtigingen en beheerde beleidsinstellingen toe. De pagina vergelijkt implementatieopties op facturering, regio's, authenticatie, kostentracking en enterprise-functies. Er is uitgebreide documentatie over het configureren van corporate proxies en LLM-gateways voor netwerkbeheer. Best practices omvatten investeren in CLAUDE.md-documentatie, het vastzetten van modelversies voor cloudproviders, en het configureren van beveiligingsbeleid via managed permissions.",
+      "key_concepts": [
+        "Claude for Teams vs. Claude for Enterprise",
+        "Cloudprovider-integraties (Bedrock, Vertex AI, Foundry)",
+        "Corporate proxy en LLM gateway configuratie",
+        "Managed permissions en beveiligingsbeleid",
+        "CLAUDE.md voor organisatiebrede standaarden"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/claude-code/common-workflows",
+      "title": "Common workflows",
+      "category": "Claude Code",
+      "type": "documentation",
+      "summary": "Deze pagina behandelt praktische workflows voor dagelijkse ontwikkeling met Claude Code. Je leert hoe je onbekende codebases verkent door overzichten en architectuurpatronen op te vragen, bugs efficiënt oplost door foutmeldingen te delen en fixes toe te passen, en code refactort naar moderne patronen. Er zijn handleidingen voor het gebruik van gespecialiseerde subagents, Plan Mode voor veilige code-analyse (alleen-lezen), het schrijven en uitvoeren van tests, het maken van pull requests, en het werken met documentatie en afbeeldingen. Geavanceerde onderwerpen omvatten extended thinking voor complexe problemen, het hervatten van eerdere sessies met naamgeving, parallelle sessies met git-worktrees, en het gebruik van Claude als Unix-hulpprogramma met pipes en gestructureerde output-formaten.",
+      "key_concepts": [
+        "Plan Mode voor veilige alleen-lezen code-analyse",
+        "Git worktrees voor parallelle Claude Code-sessies",
+        "Extended thinking voor complexe problemen",
+        "Sessie-hervatting en naamgeving",
+        "Unix-stijl piping en gestructureerde output-formaten"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/troubleshooting",
+      "title": "Troubleshooting",
+      "category": "Claude Code",
+      "type": "documentation",
+      "summary": "Deze pagina biedt oplossingen voor veelvoorkomende problemen met Claude Code-installatie en -gebruik. Installatieproblemen omvatten PATH-configuratie ('command not found'), TLS/SSL-fouten, geheugengebrek op Linux-servers, Docker-hangs, en WSL-specifieke problemen. Er zijn diagnostische stappen voor netwerkconnectiviteit, conflicterende installaties, en maprechten. De pagina behandelt ook authenticatieproblemen (OAuth-fouten, 403 Forbidden, verlopen tokens), prestatieproblemen (hoog CPU/geheugengebruik, bevroren commando's), IDE-integratieproblemen (JetBrains op WSL2, firewall-configuratie), en markdown-opmaakproblemen. Belangrijke hulpmiddelen zijn het /doctor-commando voor diagnose en /bug voor het rapporteren van problemen.",
+      "key_concepts": [
+        "PATH-configuratie en installatiediagnose",
+        "Proxy- en TLS/SSL-probleemoplossing",
+        "WSL-specifieke problemen en oplossingen",
+        "/doctor commando voor systeemdiagnose",
+        "Configuratiebestandslocaties en reset-opties"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/claude-code/sub-agents",
+      "title": "Create custom subagents",
+      "category": "Claude Code",
+      "type": "documentation",
+      "summary": "Subagents zijn gespecialiseerde AI-assistenten die specifieke taken afhandelen binnen Claude Code. Elke subagent draait in een eigen contextvenster met een aangepast systeemprompt, specifieke toolstoegang en onafhankelijke machtigingen. Claude Code bevat ingebouwde subagents (Explore voor zoeken, Plan voor planning, en general-purpose voor complexe taken) en ondersteunt het aanmaken van aangepaste subagents. Subagents worden gedefinieerd in Markdown-bestanden met YAML-frontmatter en kunnen op verschillende niveaus worden opgeslagen: projectniveau, gebruikersniveau, via CLI-vlaggen of via plugins. Configuratieopties omvatten modelkeuze, toolrestricties, permissiemodi, MCP-serverscoping, hooks, persistent geheugen, en worktree-isolatie.",
+      "key_concepts": [
+        "Ingebouwde subagents (Explore, Plan, general-purpose)",
+        "YAML-frontmatter configuratie met toolrestricties",
+        "Persistent geheugen voor cross-sessie leren",
+        "Voorgrond vs. achtergrond uitvoering",
+        "Hooks en permissiemodi per subagent"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/claude-code/skills",
+      "title": "Extend Claude with skills",
+      "category": "Claude Code",
+      "type": "documentation",
+      "summary": "Skills breiden de mogelijkheden van Claude Code uit via SKILL.md-bestanden met instructies. Claude gebruikt skills automatisch wanneer relevant, of je kunt ze handmatig aanroepen met /skill-naam. Skills worden opgeslagen op enterprise-, persoonlijk-, project- of pluginniveau. De pagina behandelt gebundelde skills zoals /simplify (codekwaliteit verbeteren), /batch (grootschalige wijzigingen parallel uitvoeren), /debug (sessie-diagnose), en /loop (terugkerende taken). Skills ondersteunen YAML-frontmatter voor configuratie, waaronder invocatiebeheer, toolrestricties, modelkeuze, en argumentsubstitutie. Geavanceerde patronen omvatten dynamische contextinjectie via shell-commando's en uitvoering in geforkte subagents.",
+      "key_concepts": [
+        "SKILL.md bestanden met YAML-frontmatter",
+        "Gebundelde skills (/simplify, /batch, /debug, /loop)",
+        "Invocatiebeheer (model vs. gebruiker)",
+        "Context fork voor uitvoering in subagents",
+        "Dynamische contextinjectie via shell-commando's"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/api/messages",
+      "title": "Messages API - Create Endpoint",
+      "category": "API",
+      "type": "documentation",
+      "summary": "De Messages API is het belangrijkste endpoint (POST /v1/messages) voor interactie met Claude. Je stuurt gestructureerde berichten met tekst en/of afbeeldingen om antwoorden te genereren. De API ondersteunt zowel enkelvoudige vragen als stateless multi-turn gesprekken. Berichten wisselen af tussen 'user' en 'assistant' rollen. De API accepteert diverse content-blokken zoals tekst, afbeeldingen (JPEG, PNG, GIF, WebP), PDF's en tool-interacties. Met de max_tokens parameter bepaal je de maximale antwoordlengte. Geavanceerde functies omvatten prompt caching, extended thinking, streaming responses, gestructureerde output met JSON-schema's, en web search integratie.",
+      "key_concepts": [
+        "Message structuur en rollen (user/assistant)",
+        "Content blokken (tekst, afbeeldingen, documenten, tools)",
+        "Token management (max_tokens)",
+        "Tool use en function calling",
+        "Streaming en prompt caching"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/api/client-sdks",
+      "title": "Client SDKs",
+      "category": "API",
+      "type": "documentation",
+      "summary": "Anthropic biedt officiële client SDK's in zeven programmeertalen: Python, TypeScript, Java, Go, Ruby, C# en PHP. Elke SDK biedt idiomatische interfaces, type-veiligheid en ingebouwde ondersteuning voor streaming, retries en foutafhandeling. De SDK's ondersteunen meerdere deployment-opties waaronder directe Claude API, Amazon Bedrock, Google Vertex AI en Microsoft Foundry. Beta-functies zijn toegankelijk via een speciale beta-namespace. De pagina bevat installatie-instructies, quick start codevoorbeelden voor alle talen, minimale versievereisten en links naar de GitHub-repositories.",
+      "key_concepts": [
+        "SDK's in 7 talen (Python, TypeScript, Java, Go, Ruby, C#, PHP)",
+        "Multi-platform ondersteuning (API, Bedrock, Vertex AI, Foundry)",
+        "Beta features namespace",
+        "Streaming en retries",
+        "Type-veilige interfaces"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/batch-processing",
+      "title": "Batch Processing / Message Batches API",
+      "category": "API",
+      "type": "documentation",
+      "summary": "De Message Batches API maakt het mogelijk om grote hoeveelheden API-verzoeken asynchroon en kostenefficiënt te verwerken. Batches worden tot 50% goedkoper verwerkt dan individuele verzoeken en de meeste zijn binnen een uur klaar. Een batch kan maximaal 100.000 verzoeken of 256 MB bevatten. Het systeem verwerkt elk verzoek onafhankelijk. Resultaten zijn 29 dagen beschikbaar na aanmaak. De API ondersteunt het aanmaken, ophalen, annuleren en bekijken van resultaten van batches. Typische toepassingen zijn grootschalige evaluaties, contentmoderatie, data-analyse en bulk contentgeneratie.",
+      "key_concepts": [
+        "Asynchrone batchverwerking",
+        "50% kostenbesparing",
+        "Maximaal 100.000 verzoeken per batch",
+        "Onafhankelijke verwerking per verzoek",
+        "Resultaten 29 dagen beschikbaar"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching",
+      "title": "Prompt Caching",
+      "category": "API",
+      "type": "documentation",
+      "summary": "Prompt caching optimaliseert API-gebruik door verwerking te hervatten vanaf specifieke prefixen in prompts, wat verwerkingstijd en kosten aanzienlijk vermindert voor repetitieve taken. Er zijn twee benaderingen: automatische caching (eenvoudig, beheert breakpoints automatisch) en expliciete cache breakpoints (fijnmazige controle). Het systeem slaat KV-cache representaties en cryptografische hashes op, niet de ruwe tekst. Cache writes kosten 25% meer dan reguliere input tokens (5 min TTL) of 2x (1 uur TTL), terwijl cache reads slechts 10% van de basisprijs kosten.",
+      "key_concepts": [
+        "Automatische vs. expliciete caching",
+        "Cache hierarchie en prefix-controle",
+        "Prijsstructuur (writes, reads, reguliere tokens)",
+        "Cache invalidatie regels",
+        "Monitoring via response-velden"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/api/claude-on-amazon-bedrock",
+      "title": "Claude on Amazon Bedrock",
+      "category": "API",
+      "type": "documentation",
+      "summary": "Claude-modellen zijn beschikbaar via Amazon Bedrock. De pagina beschrijft hoe je Claude kunt aanroepen via Bedrock met Anthropic's client SDK's of AWS SDK's zoals boto3. Installatie vereist de AWS CLI en juiste credentials. Er zijn specifieke SDK-pakketten voor Bedrock-integratie in alle ondersteunde talen. De pagina toont model-ID's voor alle beschikbare Claude-modellen met regionale beschikbaarheid. Bedrock biedt zowel globale endpoints (dynamische routing, geen toeslag) als regionale endpoints (data-residency, 10% toeslag).",
+      "key_concepts": [
+        "Bedrock SDK-installatie en configuratie",
+        "Model-ID's en regionale beschikbaarheid",
+        "Globale vs. regionale endpoints",
+        "Bearer token authenticatie",
+        "1M token context window (beta)"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/api/claude-on-vertex-ai",
+      "title": "Claude on Vertex AI",
+      "category": "API",
+      "type": "documentation",
+      "summary": "Claude-modellen zijn beschikbaar via Google Vertex AI. De Vertex API is vrijwel identiek aan de Messages API, met twee belangrijke verschillen: het model wordt in de URL opgegeven (niet in de request body) en anthropic_version wordt in de body meegegeven. De pagina beschrijft installatie van SDK's voor alle ondersteunde talen en toont codevoorbeelden. Model-ID's zijn beschikbaar voor alle Claude-varianten. Vertex AI biedt globale endpoints (aanbevolen, geen toeslag) en regionale endpoints (data-residency, 10% toeslag).",
+      "key_concepts": [
+        "Vertex AI SDK-installatie",
+        "Verschil met directe Messages API",
+        "Model-ID's voor Vertex AI",
+        "Globale vs. regionale endpoints",
+        "GCP authenticatie (gcloud auth)"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/files",
+      "title": "Files API",
+      "category": "API",
+      "type": "documentation",
+      "summary": "De Files API (beta) maakt het mogelijk om bestanden te uploaden en te beheren voor gebruik met de Claude API, zonder herhaald uploaden bij elk verzoek. Dit is vooral nuttig bij de code execution tool voor input (datasets, documenten) en het downloaden van outputs (grafieken). Bestanden krijgen een uniek file_id waarmee ze in Messages-verzoeken kunnen worden gerefereerd. Ondersteunde bestandstypen zijn PDF's, platte tekst, afbeeldingen en datasets. Maximale bestandsgrootte is 500 MB per bestand en 100 GB totale opslag per organisatie. API-operaties zijn gratis.",
+      "key_concepts": [
+        "Upload-once, use-many aanpak met file_id",
+        "Ondersteunde bestandstypen (PDF, tekst, afbeeldingen)",
+        "CRUD-operaties (upload, list, retrieve, delete, download)",
+        "Opslaglimieten (500 MB per bestand, 100 GB totaal)",
+        "Gratis API-operaties, tokens bij gebruik"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/pdf-support",
+      "title": "PDF Support",
+      "category": "API",
+      "type": "documentation",
+      "summary": "Claude kan tekst, afbeeldingen, grafieken en tabellen in PDF's analyseren. PDF's kunnen worden aangeboden via URL, base64-codering of de Files API. Maximale requestgrootte is 32 MB en maximaal 100 pagina's per verzoek. Het systeem converteert elke pagina naar een afbeelding en extraheert tegelijkertijd de tekst, waardoor Claude zowel visuele als tekstuele elementen kan analyseren. Tokenkosten bestaan uit tekst-tokens (1.500-3.000 per pagina) en afbeelding-tokens per pagina.",
+      "key_concepts": [
+        "PDF-verwerking via URL, base64 of Files API",
+        "Gecombineerde tekst- en beeldanalyse per pagina",
+        "Limieten (32 MB, 100 pagina's)",
+        "Token-kostenberekening per pagina",
+        "Bedrock Converse API vereist citations voor visuele analyse"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use/overview",
+      "title": "Tool Use with Claude",
+      "category": "API",
+      "type": "documentation",
+      "summary": "Claude kan interageren met tools en functies om zijn mogelijkheden uit te breiden. Je definieert beschikbare operaties met input-schema's in JSON-formaat en Claude besluit wanneer en hoe deze aan te roepen. Het tool use-proces verloopt in stappen: tool-definitie, model genereert tool_use blokken, je voert de tool uit en stuurt het resultaat terug. De API ondersteunt zowel client-side tools (aangepaste functies) als server-side tools (web search, code execution). Structured Outputs met strict: true garandeert dat Claude's tool calls exact het schema volgen.",
+      "key_concepts": [
+        "Tool-definitie met JSON input-schema's",
+        "Tool use lifecycle (definitie, aanroep, resultaat)",
+        "Client-side vs. server-side tools",
+        "Structured Outputs (strict: true)",
+        "Agentic tool use patronen"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/code-execution-tool",
+      "title": "Code Execution Tool",
+      "category": "API",
+      "type": "documentation",
+      "summary": "De code execution tool stelt Claude in staat om data te analyseren, visualisaties te maken, berekeningen uit te voeren, systeemcommando's te draaien en bestanden te bewerken in een veilige, gesandboxte omgeving. Claude kan Bash-commando's uitvoeren en bestanden manipuleren, inclusief het schrijven van code. Code-executie is gratis wanneer gebruikt met web search of web fetch. Het is een kernprimitief voor het bouwen van hoogpresterende agents.",
+      "key_concepts": [
+        "Gesandboxte code-uitvoering (Bash)",
+        "Data-analyse en visualisaties",
+        "Gratis bij gebruik met web search/fetch",
+        "Bestandsmanipulatie en systeemcommando's",
+        "Ondersteuning voor diverse bestandstypen"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/web-search-tool",
+      "title": "Web Search Tool",
+      "category": "API",
+      "type": "documentation",
+      "summary": "De web search tool geeft Claude directe toegang tot real-time webinhoud met automatische bronvermelding. De nieuwste versie (web_search_20260209) ondersteunt dynamische filtering met Opus 4.6 en Sonnet 4.6, waarbij Claude code schrijft en uitvoert om zoekresultaten te filteren voordat ze in de context komen. Dit leidt tot nauwkeurigere antwoorden met minder tokenverbruik. Configureerbare opties zijn max_uses, domeinfiltering (allowed/blocked domains), en lokalisatie. Web search kost $10 per 1.000 zoekopdrachten plus standaard tokenkosten.",
+      "key_concepts": [
+        "Real-time webzoekopdrachten met bronvermelding",
+        "Dynamische filtering (web_search_20260209)",
+        "Domeinfiltering en lokalisatie",
+        "Prijsmodel ($10 per 1.000 zoekopdrachten)",
+        "Prompt caching en streaming ondersteuning"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking",
+      "title": "Extended Thinking",
+      "category": "API",
+      "type": "documentation",
+      "summary": "Extended thinking geeft Claude verbeterde redeneercapaciteiten voor complexe taken door het interne denkproces stap voor stap te tonen. Het model creëert thinking content-blokken met interne redenering, gevolgd door text blokken met het definitieve antwoord. De budget_tokens parameter bepaalt het maximale aantal tokens voor intern redeneren. Voor Opus 4.6 is dit vervangen door adaptief denken met een effort-parameter. Bij gebruik met tools moeten thinking blokken behouden blijven en teruggestuurd worden bij tool-resultaten. Interleaved thinking maakt denken tussen tool calls mogelijk.",
+      "key_concepts": [
+        "Thinking content-blokken voor intern redeneren",
+        "Budget tokens parameter",
+        "Adaptief denken (Opus 4.6) vs. handmatig",
+        "Interleaved thinking bij tool use",
+        "Interactie met prompt caching"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/vision",
+      "title": "Vision",
+      "category": "API",
+      "type": "documentation",
+      "summary": "Claude's vision-mogelijkheden maken het mogelijk om afbeeldingen te begrijpen en te analyseren. Afbeeldingen kunnen worden aangeboden als base64-gecodeerd, via URL of via de Files API. Ondersteunde formaten zijn JPEG, PNG, GIF en WebP. Maximaal 100 afbeeldingen per API-verzoek. Afbeeldingen groter dan 8000x8000 pixels worden afgewezen. Tokenkosten worden berekend als (breedte x hoogte) / 750. Beperkingen: Claude kan geen personen identificeren, heeft beperkte ruimtelijke redenering, en kan niet vaststellen of een afbeelding AI-gegenereerd is.",
+      "key_concepts": [
+        "Afbeeldingen via base64, URL of Files API",
+        "Ondersteunde formaten (JPEG, PNG, GIF, WebP)",
+        "Afbeeldingsgrootte en tokenkostenberekening",
+        "Limieten (100 per request, 5 MB per afbeelding)",
+        "Beperkingen (geen persoons-ID, beperkte spatial reasoning)"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/agents-and-tools/computer-use",
+      "title": "Computer Use Tool",
+      "category": "API",
+      "type": "documentation",
+      "summary": "Computer use is een beta-functie waarmee Claude kan interageren met desktop-omgevingen. De tool biedt screenshot-capture, muisbesturing (klikken, slepen), toetsenbordinvoer en desktop-automatisering. Claude behaalt state-of-the-art resultaten op de WebArena benchmark voor autonome webnavigatie. Het werkt door een agentic loop: Claude ontvangt een screenshot, beslist over een actie, voert deze uit en herhaalt dit totdat de taak is voltooid. Computer use kan worden aangevuld met bash en teksteditor tools.",
+      "key_concepts": [
+        "Screenshot capture en desktop interactie",
+        "Muis- en toetsenbordbesturing",
+        "Agentic loop (screenshot, actie, herhaling)",
+        "Beta-functie met specifieke headers",
+        "WebArena benchmark prestaties"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/embeddings",
+      "title": "Embeddings",
+      "category": "API",
+      "type": "documentation",
+      "summary": "Anthropic biedt geen eigen embedding-model aan maar verwijst naar Voyage AI als aanbevolen provider. Text embeddings zijn numerieke representaties van tekst voor het meten van semantische gelijkenis. Voyage AI biedt diverse modellen: voyage-3-large (beste kwaliteit), voyage-3.5 (gebalanceerd), voyage-3.5-lite (snelste), plus domeinspecifieke modellen voor code, financiën en juridische teksten. De pagina bevat een compleet voorbeeld van semantisch zoeken met cosine similarity en uitleg over quantisatie-opties.",
+      "key_concepts": [
+        "Voyage AI als aanbevolen embedding-provider",
+        "Diverse modellen (general-purpose en domeinspecifiek)",
+        "Semantisch zoeken met embeddings",
+        "Quantisatie-opties (float, int8, binary)",
+        "Input_type parameter (query vs. document)"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/agents-and-tools/remote-mcp-servers",
+      "title": "Remote MCP Servers",
+      "category": "API",
+      "type": "documentation",
+      "summary": "Diverse bedrijven hebben remote MCP-servers (Model Context Protocol) gedeployed waarmee ontwikkelaars via de Anthropic MCP connector API kunnen verbinden. Deze servers breiden de beschikbare mogelijkheden uit door remote toegang tot verschillende services en tools via het MCP-protocol. De servers zijn diensten van derden en worden niet beheerd of onderschreven door Anthropic. Gebruikers moeten alleen verbinden met vertrouwde servers en de beveiligingspraktijken en voorwaarden controleren.",
+      "key_concepts": [
+        "Remote MCP-servers van derden",
+        "MCP connector API integratie",
+        "Beveiligingsoverwegingen bij verbinden",
+        "Uitbreidbare mogelijkheden via MCP-protocol",
+        "GitHub repository met extra servers"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/agents-and-tools/mcp-connector",
+      "title": "MCP Connector",
+      "category": "API",
+      "type": "documentation",
+      "summary": "De MCP connector (beta) maakt het mogelijk om rechtstreeks vanuit de Messages API verbinding te maken met remote MCP-servers zonder een aparte MCP-client. Belangrijkste functies zijn directe API-integratie, tool calling ondersteuning, flexibele toolconfiguratie (allowlist/denylist/per-tool), OAuth-authenticatie en ondersteuning voor meerdere servers. Configuratie gebeurt via mcp_servers en tools (MCPToolset in de tools-array). Alleen tool calls worden ondersteund uit de MCP-specificatie. De server moet publiek via HTTPS bereikbaar zijn.",
+      "key_concepts": [
+        "Directe MCP-serverintegratie via Messages API",
+        "Toolconfiguratie (allowlist, denylist, per-tool)",
+        "OAuth authenticatie ondersteuning",
+        "Meerdere servers in een enkel verzoek",
+        "MCPToolset configuratiepatronen"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/about-claude/models/overview",
+      "title": "Models overview",
+      "category": "Models",
+      "type": "documentation",
+      "summary": "Claude is een familie van geavanceerde grote taalmodellen ontwikkeld door Anthropic. De nieuwste modellen zijn Claude Opus 4.6 (meest intelligent, ideaal voor agents en codering, $5/$25 per MTok), Claude Sonnet 4.6 (beste combinatie van snelheid en intelligentie, $3/$15 per MTok) en Claude Haiku 4.5 (snelste model, $1/$5 per MTok). Alle modellen ondersteunen tekst- en beeldinvoer, meertalige mogelijkheden en vision. Opus 4.6 heeft een maximale output van 128K tokens, terwijl Sonnet 4.6 en Haiku 4.5 64K tokens ondersteunen. Het standaard contextvenster is 200K tokens, met een 1M-token beta-optie voor Opus 4.6 en Sonnet 4.6.",
+      "key_concepts": [
+        "Claude modelfamilie (Opus, Sonnet, Haiku)",
+        "Contextvenster tot 1M tokens (beta)",
+        "Extended thinking en adaptive thinking",
+        "Multi-platform beschikbaarheid (API, AWS Bedrock, Google Vertex AI)",
+        "Legacy modellen en deprecatie"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/about-claude/models/whats-new-sonnet-4-5",
+      "title": "What's new in Sonnet 4.5",
+      "category": "Models",
+      "type": "documentation",
+      "summary": "Claude Sonnet 4.5 (claude-sonnet-4-5-20250929) is een krachtig model dat sterke intelligentie combineert met snelle prestaties, ideaal voor dagelijkse codering, analyse en contenttaken. Het model kost $3 per miljoen input-tokens en $15 per miljoen output-tokens. Het ondersteunt extended thinking, een contextvenster van 200K tokens (1M in beta), maximaal 64K output-tokens en heeft een betrouwbare kennisgrens van januari 2025. Sonnet 4.5 werd later opgevolgd door Sonnet 4.6 met verbeterde mogelijkheden. Het model is beschikbaar via de Claude API, AWS Bedrock en Google Vertex AI.",
+      "key_concepts": [
+        "Snelle prestaties met sterke intelligentie",
+        "Extended thinking ondersteuning",
+        "1M token contextvenster (beta)",
+        "Verbeterde codering en analyse",
+        "Globale en regionale endpoints"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/about-claude/models/migrating-to-claude-4",
+      "title": "Migration guide",
+      "category": "Models",
+      "type": "documentation",
+      "summary": "Deze migratiegids beschrijft hoe je kunt upgraden naar Claude 4.6 modellen. De belangrijkste breaking changes voor Claude 4.6 zijn: (1) prefilling van assistant-berichten geeft een 400-fout, gebruik in plaats daarvan structured outputs of output_config.format; (2) JSON-escaping in tool-parameters kan afwijken. Aanbevolen wijzigingen zijn onder meer migratie naar adaptive thinking (in plaats van budget_tokens), verwijdering van diverse beta-headers die nu GA zijn, en migratie van output_format naar output_config.format. Bij migratie vanuit Claude 4.1 of eerder zijn er extra breaking changes: alleen temperature OF top_p gebruiken en tool-versies bijwerken.",
+      "key_concepts": [
+        "Prefill verwijdering (breaking change)",
+        "Adaptive thinking vervangt budget_tokens",
+        "Nieuwe stop reasons (refusal, model_context_window_exceeded)",
+        "Tool-versie updates",
+        "Effort parameter (low/medium/high)"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/about-claude/models/choosing-a-model",
+      "title": "Choosing the right model",
+      "category": "Models",
+      "type": "documentation",
+      "summary": "Deze gids helpt bij het kiezen van het juiste Claude-model op basis van drie criteria: mogelijkheden, snelheid en kosten. Er zijn twee benaderingen: (1) Begin met een snel, kostenefficiënt model zoals Haiku 4.5 voor prototyping en hoog-volume taken, en upgrade alleen indien nodig; (2) Begin met het meest capabele model (Opus 4.6) voor complexe redeneer- en coderingstaken, en optimaliseer later. Claude Opus 4.6 is het meest intelligente model, ideaal voor professionele software-engineering en geavanceerde agents. Sonnet 4.6 biedt frontier-intelligentie voor codegeneratie en data-analyse. Haiku 4.5 levert bijna-frontier prestaties met de hoogste snelheid.",
+      "key_concepts": [
+        "Drie selectiecriteria: mogelijkheden, snelheid, kosten",
+        "Bottom-up vs top-down modelselectie",
+        "Opus 4.6 voor complexe taken en agents",
+        "Haiku 4.5 voor snelheid en kosteneffectiviteit",
+        "Benchmarktests voor use-case evaluatie"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/about-claude/models/extended-thinking-models",
+      "title": "Building with Extended Thinking",
+      "category": "Models",
+      "type": "documentation",
+      "summary": "Extended thinking geeft Claude verbeterde redeneermogelijkheden voor complexe taken door stapsgewijs na te denken voordat het een antwoord geeft. Bij activering maakt Claude thinking-blokken met intern redeneren, gevolgd door tekst-blokken met het uiteindelijke antwoord. De parameter budget_tokens bepaalt het maximale aantal tokens voor het denkproces. Claude 4-modellen retourneren samengevatte thinking. Extended thinking werkt samen met tool use via interleaved thinking, waarbij Claude redeneert tussen tool-aanroepen. Opus 4.6 gebruikt uitsluitend adaptive thinking, terwijl Sonnet 4.6 zowel handmatige als adaptive thinking ondersteunt.",
+      "key_concepts": [
+        "Thinking-blokken met intern redeneerproces",
+        "Budget_tokens parameter voor denkbudget",
+        "Interleaved thinking bij tool use",
+        "Adaptive thinking vs handmatige thinking",
+        "Samengevatte thinking in Claude 4-modellen"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
+      "title": "Pricing",
+      "category": "Models",
+      "type": "documentation",
+      "summary": "Anthropic hanteert token-gebaseerde prijzen in USD. De belangrijkste modelprijzen per miljoen tokens: Opus 4.6 ($5 input/$25 output), Sonnet 4.6 ($3/$15), Haiku 4.5 ($1/$5). Prompt caching verlaagt kosten: 5-minuten cache-schrijven kost 1,25x, 1-uur cache 2x, en cache-lezen slechts 0,1x van de basisprijs. De Batch API biedt 50% korting op alle tokens. Bij het 1M-token contextvenster gelden premium-tarieven boven 200K input-tokens. Fast mode voor Opus 4.6 kost 6x het standaardtarief. Web search kost $10 per 1.000 zoekopdrachten; web fetch is gratis.",
+      "key_concepts": [
+        "Token-gebaseerde prijsstelling per model",
+        "Prompt caching kortingen (tot 90% besparing)",
+        "Batch API met 50% korting",
+        "Long context en fast mode premium-tarieven",
+        "Tool-specifieke prijzen (web search, code execution)"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/increase-consistency",
+      "title": "Increase output consistency",
+      "category": "Safety",
+      "type": "documentation",
+      "summary": "Deze pagina beschrijft technieken om de consistentie van Claude's output te verbeteren. De belangrijkste methoden zijn: het specificeren van het gewenste outputformaat (JSON, XML of templates), het vooraf invullen van Claude's antwoord om structuur af te dwingen, het gebruik van voorbeelden om Claude te trainen, het inzetten van retrieval-augmented generation voor contextuele consistentie, het opsplitsen van complexe taken in kleinere subtaken, en het in karakter houden van Claude via systeemprompts en scenario-voorbereiding. Voor gegarandeerde JSON-schema-conformiteit wordt het gebruik van Structured Outputs aanbevolen.",
+      "key_concepts": [
+        "Output format specificatie (JSON/XML/templates)",
+        "Prefilling van antwoorden",
+        "Few-shot voorbeelden voor consistentie",
+        "Retrieval-augmented generation",
+        "Systeemprompts voor rolconsistentie"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/eval-tool",
+      "title": "Using the Evaluation Tool",
+      "category": "Safety",
+      "type": "documentation",
+      "summary": "De evaluatietool in de Claude Console stelt gebruikers in staat om prompts systematisch te testen onder verschillende scenario's. Gebruikers kunnen testcases handmatig aanmaken, automatisch laten genereren door Claude, of importeren via CSV. De tool vereist dynamische variabelen met dubbele accolades in prompts. Belangrijke functies zijn: zij-aan-zij vergelijking van promptoutputs, kwaliteitsbeoordeling op een 5-puntsschaal, en promptversiebeheer. Er is ook een ingebouwde promptgenerator beschikbaar.",
+      "key_concepts": [
+        "Claude Console evaluatietool",
+        "Automatische testcase-generatie",
+        "Zij-aan-zij promptvergelijking",
+        "Kwaliteitsbeoordeling op 5-puntsschaal",
+        "Promptversiebeheer"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/develop-tests",
+      "title": "Define success criteria and build evaluations",
+      "category": "Safety",
+      "type": "documentation",
+      "summary": "Deze pagina legt uit hoe je succescriteria definieert en evaluaties bouwt voor LLM-toepassingen. Goede criteria zijn specifiek, meetbaar, haalbaar en relevant. Veelvoorkomende criteria zijn taakgetrouwheid, consistentie, relevantie, toon, privacybescherming, contextgebruik, latentie en kosten. Voor evaluaties worden verschillende methoden beschreven: exact match, cosine-similariteit, ROUGE-L, LLM-gebaseerde Likert-schalen en binaire classificatie. Beoordelingsmethoden omvatten code-gebaseerde beoordeling (snelst), menselijke beoordeling (meest flexibel) en LLM-gebaseerde beoordeling (snel en flexibel).",
+      "key_concepts": [
+        "SMART succescriteria voor LLM-toepassingen",
+        "Evaluatiemethoden (exact match, cosine similarity, ROUGE-L)",
+        "LLM-gebaseerde beoordeling met Likert-schalen",
+        "Privacy- en veiligheidsevaluatie",
+        "Code-gebaseerde vs. menselijke vs. LLM-gebaseerde beoordeling"
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy",
+      "title": "Announcing our updated Responsible Scaling Policy",
+      "category": "Safety",
+      "type": "documentation",
+      "summary": "Anthropic publiceerde een belangrijke update van hun Responsible Scaling Policy (RSP). Dit raamwerk beheert risico's van steeds krachtigere AI-systemen. Het kernprincipe blijft: geen modellen trainen of uitrollen zonder adequate veiligheids- en beveiligingsmaatregelen. Het beleid gebruikt AI Safety Level Standards (ASL), geïnspireerd op bioveiligheidsprotocollen, van ASL-1 voor basiscapaciteiten tot hogere niveaus. Twee belangrijke drempels zijn autonoom AI-onderzoek (vereist ASL-4+) en CBRN-wapens (vereist ASL-3). Het beleid omvat routinematige capaciteitsbeoordelingen en waarborgevaluaties.",
+      "key_concepts": [
+        "Responsible Scaling Policy (RSP)",
+        "AI Safety Level Standards (ASL-1 tot ASL-4+)",
+        "CBRN-wapenrisicobeoordeling",
+        "Autonoom AI-onderzoek drempel",
+        "Routinematige capaciteitsbeoordelingen"
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/legal/aup",
+      "title": "Usage Policy (Acceptable Use Policy)",
+      "category": "Safety",
+      "type": "documentation",
+      "summary": "Het gebruiksbeleid van Anthropic regelt alle gebruikersinvoer voor hun producten en diensten. Het beleid is onderverdeeld in drie categorieën: Universele Gebruiksstandaarden (voor alle gebruikers), Vereisten voor Risicovolle Toepassingen (voor consumentgerichte toepassingen met verhoogd risico), en Aanvullende Richtlijnen (voor chatbots, producten voor minderjarigen, agentisch gebruik en MCP-servers). Verboden gebruik omvat illegale activiteiten, compromittering van kritieke infrastructuur, wapenontwikkeling, geweldsaanzetting, privacyschendingen, desinformatiecampagnes, verkiezingsmanipulatie en fraude.",
+      "key_concepts": [
+        "Universele Gebruiksstandaarden",
+        "Verboden gebruik en handhaving",
+        "Kinderveiligheid en verplichte melding",
+        "Risicovolle toepassingen vereisten",
+        "Agentisch gebruik en MCP-server richtlijnen"
+      ]
+    },
+    {
+      "url": "https://trust.anthropic.com/",
+      "title": "Anthropic Trust Center - Security and Compliance",
+      "category": "Safety",
+      "type": "documentation",
+      "summary": "Het Anthropic Trust Center biedt informatie over de beveiligings- en compliance-maatregelen van het bedrijf. Anthropic heeft SOC 2 Type II-certificering behaald en voldoet aan belangrijke beveiligingsstandaarden. Het Trust Center toont informatie over gegevensbescherming, beveiligingspraktijken, compliance-certificeringen en privacy-maatregelen. Gebruikers kunnen beveiligingsdocumentatie en compliance-rapporten opvragen. Het platform demonstreert Anthropic's toewijding aan enterprise-grade beveiliging en transparantie over hun beveiligingshouding.",
+      "key_concepts": [
+        "SOC 2 Type II certificering",
+        "Gegevensbescherming en privacy",
+        "Enterprise beveiligingsstandaarden",
+        "Compliance-rapportage",
+        "Transparantie over beveiligingshouding"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "title": "Reduce hallucinations",
+      "category": "Safety",
+      "type": "documentation",
+      "summary": "Deze pagina behandelt technieken om hallucinaties (feitelijk onjuiste of inconsistente tekst) bij Claude te verminderen. Basisstrategieën omvatten: Claude expliciet toestaan 'ik weet het niet' te zeggen, directe citaten gebruiken voor feitelijke grondslag bij lange documenten, en verificatie met bronvermeldingen om antwoorden controleerbaar te maken. Geavanceerde technieken zijn: chain-of-thought verificatie, best-of-N verificatie (meerdere outputs vergelijken), iteratieve verfijning, en beperking tot externe kennis. Het document benadrukt dat deze technieken hallucinaties aanzienlijk verminderen maar niet volledig elimineren.",
+      "key_concepts": [
+        "Hallucinatievermindering bij LLMs",
+        "Directe citaten voor feitelijke grondslag",
+        "Chain-of-thought verificatie",
+        "Best-of-N verificatie",
+        "Beperking tot verstrekte documenten"
+      ]
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/keep-claude-in-character",
+      "title": "Keep Claude in character",
+      "category": "Safety",
+      "type": "documentation",
+      "summary": "Deze pagina beschrijft hoe Claude consistent in een toegewezen rol kan worden gehouden. De belangrijkste technieken zijn het gebruik van systeemprompts om de rol en persoonlijkheid te definiëren, inclusief gedetailleerde informatie over achtergrond, kenmerken en eigenaardigheden. Daarnaast wordt aanbevolen om Claude voor te bereiden op mogelijke scenario's door een lijst van verwachte reacties te bieden. Een voorbeeld toont een enterprise chatbot met specifieke interactieregels, zoals verwijzen naar bedrijfsstandaarden, verduidelijking vragen bij onzekerheid, en het beschermen van vertrouwelijke informatie.",
+      "key_concepts": [
+        "Systeemprompts voor roldefinitie",
+        "Scenario-voorbereiding voor consistentie",
+        "Enterprise chatbot configuratie",
+        "Bescherming van vertrouwelijke informatie",
+        "Karaktertrekken en persoonlijkheid modellering"
+      ]
+    },
+    {
+      "url": "https://anthropic.skilljar.com/claude-code-in-action",
+      "title": "Claude Code in Action",
+      "category": "Claude Code",
+      "type": "course",
+      "summary": "Deze cursus biedt uitgebreide training over het integreren van Claude Code in ontwikkelworkflows. Deelnemers leren over de architectuur van AI-codeerassistenten, het gebruik van tools voor complexe programmeertaken, effectief contextbeheer, visuele workflows en het bouwen van aangepaste automatiseringen. De cursus behandelt ook MCP-serverintegratie, GitHub-workflowautomatisering en verschillende redeneermodi. Voorkennis van de commandoregel en Git is vereist.",
+      "key_concepts": [
+        "AI-codeerassistent architectuur",
+        "Tool use systemen en contextbeheer",
+        "MCP-serverintegratie",
+        "GitHub workflow automatisering",
+        "Aangepaste commando's en automatisering"
+      ]
+    },
+    {
+      "url": "https://anthropic.skilljar.com/claude-101",
+      "title": "Claude 101",
+      "category": "Models",
+      "type": "course",
+      "summary": "Claude 101 is een inleidende cursus die gebruikers leert hoe ze Claude kunnen inzetten voor dagelijkse werktaken. De cursus behandelt de kernfunctionaliteiten van de Claude AI-assistent en biedt paden voor verdere verdieping in gespecialiseerde onderwerpen. Het is ontworpen voor iedereen die de praktische toepassingen van Claude in professionele contexten wil begrijpen, ongeacht ervaring met AI-tools.",
+      "key_concepts": [
+        "Kernfunctionaliteiten van Claude",
+        "Dagelijks gebruik voor werktaken",
+        "Praktische toepassingen",
+        "Basisvaardigheden AI-interactie"
+      ]
+    },
+    {
+      "url": "https://anthropic.skilljar.com/ai-fluency-framework-foundations",
+      "title": "AI Fluency: Framework & Foundations",
+      "category": "Models",
+      "type": "course",
+      "summary": "Deze cursus leert praktische vaardigheden voor effectieve, efficiënte, ethische en veilige AI-interactie. Ontwikkeld in samenwerking met Prof. Joseph Feller en Prof. Rick Dakan, richt de cursus zich op vier kerndimensies: effectiviteit, efficiëntie, ethiek en veiligheid. De cursus is geschikt voor alle niveaus, van beginners tot ervaren AI-gebruikers, en biedt bij voltooiing een certificaat na het afleggen van een eindtoets.",
+      "key_concepts": [
+        "4D AI Fluency Framework",
+        "Effectieve AI-interactie",
+        "Ethisch en veilig AI-gebruik",
+        "Samenwerking met AI-systemen"
+      ]
+    },
+    {
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api",
+      "title": "Building with the Claude API",
+      "category": "API",
+      "type": "course",
+      "summary": "Deze uitgebreide videocursus leert ontwikkelaars hoe ze Claude AI in applicaties kunnen integreren via de Anthropic API. Het curriculum omvat API-authenticatie, gespreksmanagement, promptengineering en -evaluatie, toolintegratie, retrieval-augmented generation (RAG), multimodale mogelijkheden, promptcaching, het Model Context Protocol (MCP) en agentarchitectuur. Deelnemers leren patronen zoals parallellisatie, chaining en routing voor geavanceerde AI-systemen. Python-kennis en basiskennis van JSON zijn vereist.",
+      "key_concepts": [
+        "Anthropic API configuratie en authenticatie",
+        "Promptengineering en evaluatie",
+        "Retrieval-Augmented Generation (RAG)",
+        "Model Context Protocol (MCP)",
+        "Agentarchitectuur en workflows"
+      ]
+    },
+    {
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol",
+      "title": "Introduction to Model Context Protocol",
+      "category": "API",
+      "type": "course",
+      "summary": "Deze cursus leert ontwikkelaars hoe ze MCP-servers en -clients bouwen met Python. Het curriculum richt zich op de drie kernprimitieven van MCP: tools, resources en prompts. Deelnemers leren de MCP-architectuur begrijpen, communicatiesystemen verkennen, servers bouwen met de Python SDK, resources definiëren, prompts ontwerpen en integratiepatronen toepassen. De cursus behandelt ook debugging met de MCP Server Inspector.",
+      "key_concepts": [
+        "MCP-architectuur en communicatie",
+        "Tools, resources en prompts primitieven",
+        "MCP-server bouwen met Python SDK",
+        "Debugging met MCP Server Inspector",
+        "Integratiepatronen en contextinjectie"
+      ]
+    },
+    {
+      "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics",
+      "title": "Model Context Protocol: Advanced Topics",
+      "category": "API",
+      "type": "course",
+      "summary": "Deze gevorderde cursus behandelt geavanceerde MCP-functies en implementatiepatronen. Onderwerpen omvatten sampling-implementatie, voortgangs- en logmeldingen, roots-gebaseerde bestandstoegang, JSON-berichtarchitectuur, stdio- en StreamableHTTP-transportmechanismen, HTTP-transportbeperkingen, productieschaling en criteria voor transportkeuze. De cursus is bedoeld voor ontwikkelaars die MCP-servers en -clients bouwen en kennis hebben van async Python-programmering.",
+      "key_concepts": [
+        "Sampling en server-client communicatie",
+        "Transportmechanismen (stdio en StreamableHTTP)",
+        "Productieschaling en deployment",
+        "JSON-berichtspecificatie",
+        "Beveiligings- en toegangsbeheer"
+      ]
+    },
+    {
+      "url": "https://anthropic.skilljar.com/claude-in-amazon-bedrock",
+      "title": "Claude with Amazon Bedrock",
+      "category": "API",
+      "type": "course",
+      "summary": "Deze technische cursus biedt uitgebreide begeleiding bij het integreren en implementeren van Claude AI-modellen via Amazon Bedrock. Ontwikkelaars leren multi-turn gesprekken opzetten, prompts bouwen en evalueren, aangepaste tools integreren, RAG-pipelines ontwikkelen met tekst chunking en embeddings, en geavanceerde functies configureren zoals extended thinking, vision en promptcaching. De cursus behandelt ook Claude Code en het Model Context Protocol binnen het AWS-ecosysteem.",
+      "key_concepts": [
+        "Amazon Bedrock integratie",
+        "RAG-pipelines en retrieval-technieken",
+        "Tool-integratie en function calling",
+        "Promptevaluatie-frameworks",
+        "Geavanceerde functies (vision, caching)"
+      ]
+    },
+    {
+      "url": "https://anthropic.skilljar.com/claude-with-google-vertex",
+      "title": "Claude with Google Cloud's Vertex AI",
+      "category": "API",
+      "type": "course",
+      "summary": "Dit uitgebreide technische trainingsprogramma leert ontwikkelaars hoe ze Claude AI-modellen integreren en implementeren via Google Cloud's Vertex AI. De cursus behandelt setup en configuratie, gespreksmanagement, promptengineering, toolintegratie, RAG-systemen met embeddings en BM25-zoekopdrachten, geavanceerde functies zoals vision en PDF-verwerking, het Model Context Protocol en agentworkflows met parallellisatie en routing.",
+      "key_concepts": [
+        "Google Vertex AI integratie",
+        "Promptengineering en optimalisatie",
+        "RAG-systemen en retrievaltechnieken",
+        "Agentworkflows en architectuur",
+        "Model Context Protocol implementatie"
+      ]
+    },
+    {
+      "url": "https://anthropic.skilljar.com/ai-fluency-for-educators",
+      "title": "AI Fluency for Educators",
+      "category": "Safety",
+      "type": "course",
+      "summary": "Deze cursus stelt docenten, instructional designers en onderwijsleiders in staat om AI-principes te integreren in hun onderwijspraktijk en institutionele strategie. Ontwikkeld door Anthropic in samenwerking met Prof. Joseph Feller en Prof. Rick Dakan, vereist de cursus voorkennis van het 4D AI Fluency Framework. Deelnemers leren hoe ze kunstmatige intelligentie effectief kunnen toepassen in hun onderwijsmethodologie. Bij voltooiing kan een certificaat worden behaald.",
+      "key_concepts": [
+        "4D AI Fluency Framework in onderwijs",
+        "AI-integratie in onderwijspraktijk",
+        "Institutionele AI-strategie",
+        "Verantwoord AI-gebruik in het onderwijs"
+      ]
+    },
+    {
+      "url": "https://anthropic.skilljar.com/ai-fluency-for-students",
+      "title": "AI Fluency for Students",
+      "category": "Models",
+      "type": "course",
+      "summary": "Deze cursus, ontwikkeld door Anthropic in samenwerking met Prof. Joseph Feller en Prof. Rick Dakan, stelt studenten in staat om praktische AI-vaardigheden te ontwikkelen. Het programma richt zich op verantwoorde AI-samenwerking om academisch succes en loopbaanvoorbereiding te verbeteren. Voorkennis van het 4D AI Fluency Framework is vereist. Bij voltooiing kunnen studenten een eindtoets afleggen en een certificaat ontvangen.",
+      "key_concepts": [
+        "Verantwoorde AI-samenwerking",
+        "AI-vaardigheden voor academisch succes",
+        "Loopbaanvoorbereiding met AI",
+        "4D AI Fluency Framework"
+      ]
+    },
+    {
+      "url": "https://anthropic.skilljar.com/teaching-ai-fluency",
+      "title": "Teaching AI Fluency",
+      "category": "Safety",
+      "type": "course",
+      "summary": "Deze cursus stelt docenten, instructional designers en anderen in staat om AI Fluency te onderwijzen en te beoordelen in door instructeurs geleide settings. Ontwikkeld door Anthropic met Prof. Joseph Feller en Prof. Rick Dakan, biedt het programma pedagogische benaderingen, beoordelingsstrategieën voor AI-competentie en praktische hulpmiddelen. Voorkennis van het 4D AI Fluency Framework is vereist. Bij voltooiing is een certificaat beschikbaar.",
+      "key_concepts": [
+        "Pedagogische benaderingen voor AI-onderwijs",
+        "Beoordeling van AI-competentie",
+        "Instructor-led AI Fluency training",
+        "4D AI Fluency Framework toepassen"
+      ]
+    },
+    {
+      "url": "https://anthropic.skilljar.com/ai-fluency-for-nonprofits",
+      "title": "AI Fluency for Nonprofits",
+      "category": "Safety",
+      "type": "course",
+      "summary": "Deze gratis cursus is ontworpen om non-profitprofessionals te helpen praktische vaardigheden te ontwikkelen in het werken met AI-systemen. Gecreëerd in samenwerking met GivingTuesday, adresseert de cursus de unieke behoeften van non-profitorganisaties met beperkte middelen en missiegedreven werk. Het curriculum is gebaseerd op het 4D Framework: Delegatie, Beschrijving, Onderscheidingsvermogen en Zorgvuldigheid.",
+      "key_concepts": [
+        "4D Framework (Delegatie, Beschrijving, Onderscheidingsvermogen, Zorgvuldigheid)",
+        "AI voor non-profitorganisaties",
+        "Missiegedreven AI-implementatie",
+        "Organisatorische impact en efficiëntie"
+      ]
+    },
+    {
+      "url": "https://anthropic.skilljar.com/introduction-to-agent-skills",
+      "title": "Introduction to Agent Skills",
+      "category": "Claude Code",
+      "type": "course",
+      "summary": "Deze cursus leert deelnemers hoe ze herbruikbare Skills in Claude Code kunnen bouwen, configureren en distribueren. Skills zijn markdown-instructies die Claude automatisch contextueel toepast. De cursus behandelt het schrijven van SKILL.md-bestanden, het organiseren van skill-directories, geavanceerde configuratie met tooltoegangsbeperkingen, het delen via repositories en plugins, organisatiebrede implementatie en het integreren van Skills in aangepaste subagents.",
+      "key_concepts": [
+        "SKILL.md configuratie en frontmatter",
+        "Skill-distributie via repositories en plugins",
+        "Subagent-integratie",
+        "Progressive disclosure en contextbeheer",
+        "Probleemoplossing en debugging"
+      ]
+    }
+  ]
+}
