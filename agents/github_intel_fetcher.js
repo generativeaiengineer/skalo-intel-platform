@@ -43,8 +43,8 @@ const ANTHROPIC_API_KEY  = process.env.ANTHROPIC_API_KEY;
 const GITHUB_TOKEN       = process.env.GITHUB_TOKEN;
 const INSTAGRAM_USERNAME = 'github.awesome';
 const ACTOR_ID           = 'apify/instagram-post-scraper';
-const MAX_BACKFILL       = 200;  // posts to fetch on first run
-const MAX_INCREMENTAL    = 30;   // posts to fetch on subsequent runs
+const MAX_BACKFILL       = 5;    // posts to fetch on first run
+const MAX_INCREMENTAL    = 5;    // posts to fetch on subsequent runs
 const README_EXCERPT_LEN = 2000; // chars to keep from README
 
 // GitHub path segments that are not owner/repo pairs
