@@ -543,20 +543,24 @@ async function main() {
       console.log('ℹ️  Skipping scrape — processing existing posts only.');
     }
 
-    // Step 1: download + extract audio for new video posts
-    const audioResults = newPosts.length > 0
-      ? await processVideos(newPosts)
-      : [];
-
-    // Step 2: transcribe — updates post objects in newPosts in-place
-    await transcribePosts(audioResults);
-
-    // Merge: new posts (with transcripts) at top + existing, sorted by date
+    // Merge early so we can pick from the full pool for backlog processing
     const merged = [...newPosts, ...existing.posts].sort((a, b) => {
       const da = a.posted_at ? new Date(a.posted_at) : 0;
       const db = b.posted_at ? new Date(b.posted_at) : 0;
       return db - da;
     });
+
+    // Step 1: build the list to process — new posts first, then backlog up to MAX_INCREMENTAL total
+    const backlog = merged.filter(p => !p.processed && p.video_url && !newPosts.includes(p));
+    const toProcess = [...newPosts, ...backlog].slice(0, MAX_INCREMENTAL);
+    console.log(`   To process this run: ${toProcess.length} (${newPosts.length} new + ${toProcess.length - newPosts.length} backlog)`);
+
+    const audioResults = toProcess.length > 0
+      ? await processVideos(toProcess)
+      : [];
+
+    // Step 2: transcribe — updates post objects in-place
+    await transcribePosts(audioResults);
 
     // Step 3: extract GitHub repos for all processed-but-no-repos posts in merged
     await extractAndFetchRepos(merged);
